@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Imperial Editorial - Supplier Registration</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#0a5043",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1c19",
+                    "primary-container": "#004b3e",
+                    "surface-variant": "#e4e2dd",
+                    "tertiary-fixed": "#ffe089",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#eae8e3",
+                    "outline-variant": "#bfc9c4",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#30312e",
+                    "surface-tint": "#2b695a",
+                    "surface-bright": "#fbf9f4",
+                    "on-tertiary-fixed-variant": "#574400",
+                    "surface-container-highest": "#e4e2dd",
+                    "surface": "#fbf9f4",
+                    "inverse-primary": "#95d3c1",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#241a00",
+                    "secondary-container": "#fed65b",
+                    "tertiary-fixed-dim": "#e3c46b",
+                    "primary-fixed-dim": "#95d3c1",
+                    "on-primary-container": "#7dbaa9",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-tertiary-container": "#4f3d00",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-surface": "#1b1c19",
+                    "on-primary-fixed": "#00201a",
+                    "inverse-on-surface": "#f2f1ec",
+                    "secondary-fixed-dim": "#e9c349",
+                    "primary": "#003229",
+                    "secondary-fixed": "#ffe088",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dbdad5",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#735c0a",
+                    "primary-fixed": "#b0efdd",
+                    "on-secondary-container": "#745c00",
+                    "secondary": "#735c00",
+                    "surface-container-low": "#f5f3ee",
+                    "tertiary-container": "#c5a853",
+                    "surface-container": "#f0eee9",
+                    "on-surface-variant": "#404945",
+                    "outline": "#707975",
+                    "background": "#fbf9f4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        .font-noto-serif { font-family: 'Noto Serif', serif; }
+        .font-manrope { font-family: 'Manrope', sans-serif; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface min-h-screen">
+<!-- TopNavBar -->
+<nav class="bg-[#fbf9f4]/80 dark:bg-emerald-950/80 backdrop-blur-md sticky top-0 z-50 shadow-[0_20px_40px_rgba(27,28,25,0.05)]">
+<div class="flex justify-between items-center w-full px-8 py-4">
+<div class="flex items-center gap-8">
+<span class="text-2xl font-bold font-noto-serif text-emerald-900 dark:text-emerald-50 tracking-tight">The Imperial Editorial</span>
+<div class="hidden md:flex space-x-6">
+<a class="text-emerald-800/60 dark:text-emerald-200/60 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-300 font-manrope uppercase tracking-[0.1em] text-xs font-semibold" href="#">Catalog</a>
+<a class="text-emerald-900 dark:text-emerald-50 font-semibold font-manrope uppercase tracking-[0.1em] text-xs" href="#">Suppliers</a>
+<a class="text-emerald-800/60 dark:text-emerald-200/60 hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-300 font-manrope uppercase tracking-[0.1em] text-xs font-semibold" href="#">Atelier</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-outline">search</span>
+<input class="pl-10 pr-4 py-2 bg-surface-container-low border-none focus:ring-1 focus:ring-secondary rounded-lg text-sm w-64 font-manrope" placeholder="Search Archives..." type="text"/>
+</div>
+<button class="material-symbols-outlined text-emerald-900 dark:text-emerald-50 hover:text-amber-700 transition-colors">notifications</button>
+<button class="material-symbols-outlined text-emerald-900 dark:text-emerald-50 hover:text-amber-700 transition-colors">account_circle</button>
+</div>
+</div>
+</nav>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 pt-20 bg-[#f5f3ee] dark:bg-emerald-900/20 bg-emerald-900/5">
+<div class="p-6 mb-4">
+<h2 class="font-noto-serif text-lg text-emerald-900 dark:text-emerald-50">The Atelier</h2>
+<p class="font-manrope uppercase tracking-[0.1em] text-[10px] text-emerald-800/50 font-bold">Management Suite</p>
+</div>
+<nav class="flex flex-col h-full space-y-2 p-6">
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-800/50 dark:text-emerald-200/40 font-manrope uppercase tracking-[0.1em] text-xs font-semibold hover:bg-[#ffffff]/50 dark:hover:bg-emerald-800/20 hover:text-emerald-900 dark:hover:text-emerald-50 transition-all ease-out duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-800/50 dark:text-emerald-200/40 font-manrope uppercase tracking-[0.1em] text-xs font-semibold hover:bg-[#ffffff]/50 dark:hover:bg-emerald-800/20 hover:text-emerald-900 dark:hover:text-emerald-50 transition-all ease-out duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                    Inventory
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-800/50 dark:text-emerald-200/40 font-manrope uppercase tracking-[0.1em] text-xs font-semibold hover:bg-[#ffffff]/50 dark:hover:bg-emerald-800/20 hover:text-emerald-900 dark:hover:text-emerald-50 transition-all ease-out duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+                    Categories
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-900 dark:text-emerald-50 bg-[#ffffff] dark:bg-emerald-800/40 shadow-sm border-r-2 border-amber-600 font-manrope uppercase tracking-[0.1em] text-xs font-semibold ease-out duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+                    Suppliers
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-800/50 dark:text-emerald-200/40 font-manrope uppercase tracking-[0.1em] text-xs font-semibold hover:bg-[#ffffff]/50 dark:hover:bg-emerald-800/20 hover:text-emerald-900 dark:hover:text-emerald-50 transition-all ease-out duration-200 hover:translate-x-1" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+<div class="mt-auto pb-12">
+<button class="w-full py-4 bg-primary text-on-primary font-manrope uppercase tracking-widest text-[10px] font-bold rounded-sm hover:bg-primary-container transition-colors">
+                        New Product
+                    </button>
+</div>
+</nav>
+</aside>
+<!-- Main Content -->
+<main class="md:ml-64 flex-1 p-8 md:p-12">
+<header class="mb-16">
+<h1 class="font-noto-serif text-4xl md:text-5xl text-primary mb-4 tracking-tight">Register Artisan Supplier</h1>
+<p class="font-manrope text-on-surface-variant max-w-2xl leading-relaxed">
+                    Expand our network of excellence. Add a new master craftsman or workshop to the Imperial Editorial's curated supply chain.
+                </p>
+</header>
+<section class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<!-- Form Section -->
+<div class="lg:col-span-7 space-y-12">
+<form class="space-y-10">
+<div class="space-y-6">
+<h3 class="font-manrope uppercase tracking-[0.2em] text-[10px] font-bold text-secondary">Workshop Identity</h3>
+<div class="relative group">
+<label class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-semibold">Workshop Name</label>
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-secondary focus:ring-0 px-0 py-3 font-noto-serif text-xl transition-all placeholder:text-surface-variant" placeholder="e.g. Atelier Valerius" type="text"/>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+<div class="relative">
+<label class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-semibold">Primary Contact</label>
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-secondary focus:ring-0 px-0 py-3 font-manrope text-sm transition-all" placeholder="Lead Artisan Name" type="text"/>
+</div>
+<div class="relative">
+<label class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-semibold">Contact Email</label>
+<input class="w-full bg-transparent border-b border-outline-variant focus:border-secondary focus:ring-0 px-0 py-3 font-manrope text-sm transition-all" placeholder="contact@atelier.com" type="email"/>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<h3 class="font-manrope uppercase tracking-[0.2em] text-[10px] font-bold text-secondary">Craftsmanship &amp; Origin</h3>
+<div class="relative">
+<label class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-semibold">Material Specialty</label>
+<select class="w-full bg-transparent border-b border-outline-variant focus:border-secondary focus:ring-0 px-0 py-3 font-manrope text-sm transition-all appearance-none">
+<option>Select Specialty</option>
+<option>Rare Gemstones &amp; Minerals</option>
+<option>Ethical Fair-Trade Gold</option>
+<option>Artisanal Silver Filigree</option>
+<option>Sustainably Sourced Pearls</option>
+<option>High-Complication Setting</option>
+</select>
+</div>
+<div class="relative">
+<label class="block font-manrope text-[10px] uppercase tracking-widest text-on-surface-variant mb-2 font-semibold">Workshop Location</label>
+<div class="flex items-center gap-2 border-b border-outline-variant">
+<span class="material-symbols-outlined text-outline text-sm">location_on</span>
+<input class="w-full bg-transparent border-none focus:ring-0 px-0 py-3 font-manrope text-sm transition-all" placeholder="City, Country" type="text"/>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<h3 class="font-manrope uppercase tracking-[0.2em] text-[10px] font-bold text-secondary">Sustainability Credentials</h3>
+<div class="flex flex-wrap gap-4">
+<label class="flex items-center gap-3 px-6 py-3 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="rounded-sm border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-manrope text-xs uppercase tracking-wider font-semibold">RJC Certified</span>
+</label>
+<label class="flex items-center gap-3 px-6 py-3 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="rounded-sm border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-manrope text-xs uppercase tracking-wider font-semibold">Carbon Neutral</span>
+</label>
+<label class="flex items-center gap-3 px-6 py-3 bg-surface-container-low rounded-lg cursor-pointer hover:bg-surface-container-high transition-colors">
+<input class="rounded-sm border-outline text-primary focus:ring-primary" type="checkbox"/>
+<span class="font-manrope text-xs uppercase tracking-wider font-semibold">Heritage Craft</span>
+</label>
+</div>
+</div>
+<div class="pt-8 flex items-center gap-6">
+<button class="px-12 py-4 bg-primary text-on-primary font-manrope uppercase tracking-[0.2em] text-xs font-bold rounded-lg shadow-sm hover:bg-primary-container transition-all active:scale-[0.98]" type="submit">
+                                Confirm Registration
+                            </button>
+<button class="font-manrope uppercase tracking-[0.2em] text-xs font-bold text-on-surface-variant hover:text-primary transition-colors" type="button">
+                                Cancel
+                            </button>
+</div>
+</form>
+</div>
+<!-- Visual/Info Sidebar -->
+<div class="lg:col-span-5 space-y-8">
+<div class="relative aspect-[4/5] bg-surface-container-low rounded-lg overflow-hidden group">
+<img alt="Artisan jeweler at work" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close-up of master jeweler in a sunlit wooden workshop meticulously setting a diamond into a gold ring with precise tools" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDkovb0F67UM39EScdBeuNrBSEUxW_-J9RjQKtVcfcMmGDUKCDaAb62dgi7gsiqzyBx9aOuXvnA92DEu1dnNLX1ffxs3mgAaXFSLqNTOWeOGz8EdhHABdG4gXicPcEpjq4YlFiOXrIZld-m061km29uFsUKmqXXb4H29TcaT-RZAGcQ-M99zPj-JxXX2Wai86HIUJZYHOZWXWsxX9v6VAtFHwKuyHaLo2xjhdFPhz9z8bLPrPL0nIe1raOhnKQvHluudQCmDYLO0xc"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<p class="font-noto-serif text-2xl text-white mb-2">Heritage of Quality</p>
+<p class="font-manrope text-xs text-white/80 leading-relaxed max-w-xs uppercase tracking-wider font-medium">
+                                "We only partner with workshops that share our devotion to the singular beauty of hand-cut stones and sustainable extraction."
+                            </p>
+</div>
+</div>
+<div class="bg-surface-container-low p-8 space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">verified</span>
+<div>
+<h4 class="font-manrope text-xs uppercase tracking-widest font-bold text-primary mb-1">Onboarding Process</h4>
+<p class="font-manrope text-xs text-on-surface-variant leading-relaxed">Verification takes 3-5 business days. We will contact the primary lead for workshop audit documents.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">security</span>
+<div>
+<h4 class="font-manrope text-xs uppercase tracking-widest font-bold text-primary mb-1">Contract Compliance</h4>
+<p class="font-manrope text-xs text-on-surface-variant leading-relaxed">All Imperial Editorial suppliers must adhere to our Global Ethics Charter and Material Traceability Standards.</p>
+</div>
+</div>
+</div>
+<!-- Asymmetric Map Placeholder -->
+<div class="relative h-48 bg-surface-container-high rounded-lg overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 opacity-20 grayscale" data-alt="Minimalist abstract map of European artisan regions with golden dots representing workshop locations" data-location="Florence, Italy" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDQnRzckw0UecLZ7pXPRKBteaFzeLVJPk0iY1JyiTljY0BvClSu4gAZpZw15jbClQs2gbRT7lUstR8gzyk8gGfpOAJ0iUdVsPkbU3MrUBCZllfdD_68oT2upW3GLwPbJXTL6brOs6mFxfaHPW8uRFG6T0hhyvY4tq6KW1NQW_IqUYzVgMrYnFJoAmFrQcHBX6_fJWb44NKSXjK4FDf77Q1_7FOLLpaUafF7oCk43152-4gWsa8nwwIhGutLbsVKCdfjDwpBPfmGCDE')"></div>
+<div class="z-10 text-center">
+<span class="material-symbols-outlined text-secondary text-3xl mb-2">explore</span>
+<p class="font-manrope text-[10px] uppercase tracking-widest font-bold text-primary">Global Workshop Network</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+</div>
+<!-- Mobile Navigation -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 bg-[#fbf9f4] shadow-[0_-4px_20px_rgba(0,0,0,0.05)] z-50 flex justify-around items-center py-4 px-6 border-t border-surface-container-low">
+<button class="flex flex-col items-center gap-1 text-emerald-800/60">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="text-[8px] uppercase font-bold tracking-tighter">Home</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-emerald-800/60">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-[8px] uppercase font-bold tracking-tighter">Vault</span>
+</button>
+<div class="relative -top-8">
+<button class="bg-primary text-on-primary p-4 rounded-full shadow-lg">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+<button class="flex flex-col items-center gap-1 text-emerald-900 font-semibold">
+<span class="material-symbols-outlined">local_shipping</span>
+<span class="text-[8px] uppercase font-bold tracking-tighter">Partners</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-emerald-800/60">
+<span class="material-symbols-outlined">account_circle</span>
+<span class="text-[8px] uppercase font-bold tracking-tighter">Profile</span>
+</button>
+</div>
+</body></html>

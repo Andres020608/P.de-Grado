@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Imperial Editorial - Inventory Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;700&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body {
+            font-family: 'Manrope', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+        .font-serif {
+            font-family: 'Noto Serif', serif;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "surface-container-lowest": "#ffffff",
+                      "surface-container": "#f0eee9",
+                      "on-error": "#ffffff",
+                      "error-container": "#ffdad6",
+                      "on-secondary-container": "#745c00",
+                      "secondary-fixed": "#ffe088",
+                      "inverse-on-surface": "#f2f1ec",
+                      "on-secondary": "#ffffff",
+                      "on-surface-variant": "#404945",
+                      "on-primary-fixed": "#00201a",
+                      "on-secondary-fixed": "#241a00",
+                      "on-primary-fixed-variant": "#0a5043",
+                      "primary-fixed": "#b0efdd",
+                      "on-secondary-fixed-variant": "#574500",
+                      "surface-container-low": "#f5f3ee",
+                      "secondary-fixed-dim": "#e9c349",
+                      "on-tertiary-fixed-variant": "#574400",
+                      "surface-container-high": "#eae8e3",
+                      "tertiary-fixed-dim": "#e3c46b",
+                      "surface-dim": "#dbdad5",
+                      "on-background": "#1b1c19",
+                      "tertiary-container": "#c5a853",
+                      "surface-tint": "#2b695a",
+                      "on-primary": "#ffffff",
+                      "surface-container-highest": "#e4e2dd",
+                      "inverse-surface": "#30312e",
+                      "background": "#fbf9f4",
+                      "error": "#ba1a1a",
+                      "primary-container": "#004b3e",
+                      "secondary-container": "#fed65b",
+                      "on-tertiary": "#ffffff",
+                      "surface-bright": "#fbf9f4",
+                      "primary-fixed-dim": "#95d3c1",
+                      "inverse-primary": "#95d3c1",
+                      "on-primary-container": "#7dbaa9",
+                      "outline-variant": "#bfc9c4",
+                      "tertiary-fixed": "#ffe089",
+                      "primary": "#003229",
+                      "on-error-container": "#93000a",
+                      "tertiary": "#735c0a",
+                      "on-tertiary-container": "#4f3d00",
+                      "on-tertiary-fixed": "#241a00",
+                      "secondary": "#735c00",
+                      "on-surface": "#1b1c19",
+                      "outline": "#707975",
+                      "surface": "#fbf9f4",
+                      "surface-variant": "#e4e2dd"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "fontFamily": {
+                      "headline": ["Noto Serif"],
+                      "body": ["Manrope"],
+                      "label": ["Manrope"]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-surface overflow-x-hidden">
+<!-- SideNavBar (Authority Source: JSON & Design System) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#f5f3ee] dark:bg-[#002820] flex flex-col h-full p-6 shadow-sm z-40">
+<div class="mb-10">
+<h1 class="font-serif text-xl text-[#003229] dark:text-[#fbf9f4] tracking-tight">Imperial Admin</h1>
+<p class="font-sans text-[10px] tracking-[0.2em] uppercase text-[#003229]/60 dark:text-[#fbf9f4]/60 mt-1">Inventory Management</p>
+</div>
+<nav class="flex-1 space-y-2">
+<!-- Dashboard Tab -->
+<a class="flex items-center gap-3 px-4 py-3 font-sans text-sm tracking-wide uppercase text-[#003229]/60 dark:text-[#fbf9f4]/60 hover:bg-[#735c00]/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">dashboard</span>
+<span>Dashboard</span>
+</a>
+<!-- Inventory Tab (Active State per logic: Closest match to current page) -->
+<a class="flex items-center gap-3 px-4 py-3 font-sans text-sm tracking-wide uppercase bg-[#003229] text-[#fbf9f4] rounded-sm transition-colors duration-200 shadow-lg shadow-primary/10" href="#">
+<span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">diamond</span>
+<span>Inventory</span>
+</a>
+<!-- Orders Tab -->
+<a class="flex items-center gap-3 px-4 py-3 font-sans text-sm tracking-wide uppercase text-[#003229]/60 dark:text-[#fbf9f4]/60 hover:bg-[#735c00]/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">shopping_bag</span>
+<span>Orders</span>
+</a>
+<!-- Customers Tab -->
+<a class="flex items-center gap-3 px-4 py-3 font-sans text-sm tracking-wide uppercase text-[#003229]/60 dark:text-[#fbf9f4]/60 hover:bg-[#735c00]/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">group</span>
+<span>Customers</span>
+</a>
+<!-- Settings Tab -->
+<a class="flex items-center gap-3 px-4 py-3 font-sans text-sm tracking-wide uppercase text-[#003229]/60 dark:text-[#fbf9f4]/60 hover:bg-[#735c00]/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-lg">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="pt-6 mt-auto">
+<button class="w-full bg-primary text-on-primary py-4 px-4 text-xs font-bold tracking-[0.15em] uppercase rounded-lg shadow-md hover:opacity-90 transition-all active:scale-95">
+                Add New Product
+            </button>
+<div class="mt-8 flex items-center gap-3 px-2 border-t border-outline-variant/20 pt-6">
+<div class="w-10 h-10 rounded-full overflow-hidden bg-surface-container-high border border-outline-variant/30">
+<img alt="Admin Avatar" class="w-full h-full object-cover" data-alt="Close-up professional portrait of a distinguished man in a dark tailored suit with soft editorial studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBK7O16PDWEjVbZhxelDGZcNg9oEPXxFhCti8kaKNolbNElIZ6Wy9669yMY21zzuxTdHp4026goGcAzPnkjIqUhC8SiJOl6FxkNZU6vrLiRI4oLffA6z4wSstX3AyvIg2Ab-F2hRND52sSuOMLXxik5CPH2SH1JlgnWzbZETjQXXYhoIGi7zL7vI1nbQt90nk-i4Yyducc6klCTDhbin7lbwiWl72bR3A0mK_xMB7J4WhQJVNLS2bP9kgYUM_o2gjgg7EJtUeom0eQ"/>
+</div>
+<div>
+<p class="text-xs font-bold text-primary">Julian V.</p>
+<p class="text-[10px] text-outline uppercase tracking-wider">Senior Curator</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="ml-64 min-h-screen p-12">
+<!-- Header Section -->
+<header class="flex justify-between items-end mb-16">
+<div class="space-y-2">
+<h2 class="font-serif text-5xl font-bold text-primary tracking-tighter">Product Inventory</h2>
+<div class="h-1 w-24 bg-secondary"></div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute left-4 top-1/2 -translate-y-1/2 material-symbols-outlined text-outline group-focus-within:text-secondary transition-colors">search</span>
+<input class="bg-surface-container-low border-none border-b border-outline-variant focus:border-secondary focus:ring-0 text-sm font-body px-12 py-3 w-72 rounded-sm transition-all" placeholder="Search archives..." type="text"/>
+</div>
+<div class="flex items-center gap-2 px-4 py-3 bg-surface-container-lowest border border-outline-variant/10 text-xs font-bold uppercase tracking-widest text-primary hover:bg-surface-container transition-colors cursor-pointer">
+<span class="material-symbols-outlined text-sm">tune</span>
+                    Filter
+                </div>
+</div>
+</header>
+<!-- Stats Grid (Asymmetric Layout) -->
+<section class="grid grid-cols-12 gap-6 mb-16">
+<div class="col-span-12 md:col-span-8 bg-primary p-8 rounded-lg flex flex-col justify-between h-48 relative overflow-hidden group">
+<div class="absolute -right-8 -top-8 w-64 h-64 bg-white/5 rounded-full blur-3xl transition-transform group-hover:scale-110"></div>
+<div>
+<p class="text-[10px] uppercase tracking-[0.3em] text-on-primary/60 font-bold mb-1">Total Valuation</p>
+<h3 class="text-3xl font-serif text-on-primary">€2,482,900.00</h3>
+</div>
+<div class="flex justify-between items-end">
+<div class="flex -space-x-3">
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-secondary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="close up of faceted sapphire gemstone" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDft3g0WNIPFuDPRCzFWEVZQhPz4CkQhG5WpDHk0B4zEeo4wiFym9APJcnaA41oiTiobyCRtFKmitbu3MYcVVwg3LQirNp4wqH5OipxxA8x6Ibi-UvzUqGs1ttm6qDnwBmow8DEPEuwWNRh6Vx_0UHZ503vGie7n4q6nc-CfPccHeDSzPv5nT1LUPMO3AexgO5CbWf91KFOZpBNc89AInrdmN29w7QGjo7WZUuI2rfU00E24Kl-vxMgNlTfgQDVRbQE3oVlQyQ74OI"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-secondary overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="sparkling diamond ring on velvet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBi4HPY-ZNxeHR9ohG5p7TZa_upK3xHMVUBZ9hofl3GkF6Ikm56uaKRjDXqQkThz8AlGK5xJAi9zGvL1_xFrbk3OYdpTRHoMcHfAMwphtHWe9HYnSFAaqPlYv8AFuYD-GNbqzwZ7fH_Bc-WpAM0bhjNlyugSKwSzJmYTgB9bszjUE8e4FHPrU3lCGcFubg-AaWRGwWb8EoPfLYEa_l3lUswnu80AC0uRQOW4V0edXXJNxfhUGQwnhpIo49tCO8_WaN6tgC2BxYD9EE"/>
+</div>
+<div class="w-8 h-8 rounded-full border-2 border-primary bg-secondary-container flex items-center justify-center text-[10px] font-bold text-on-secondary-container">+12</div>
+</div>
+<span class="text-[10px] text-on-primary/80 tracking-widest uppercase font-bold flex items-center gap-2">
+                        View Report <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</span>
+</div>
+</div>
+<div class="col-span-12 md:col-span-4 bg-surface-container-low p-8 rounded-lg border border-outline-variant/10 flex flex-col justify-between">
+<div>
+<p class="text-[10px] uppercase tracking-[0.3em] text-outline font-bold mb-1">Active Orders</p>
+<h3 class="text-3xl font-serif text-primary">14</h3>
+</div>
+<p class="text-xs text-outline leading-relaxed italic">"Excellence is not an act, but a habit."</p>
+</div>
+</section>
+<!-- Inventory Table (High-End Tonal Separation) -->
+<section class="bg-surface-container-lowest rounded-xl shadow-2xl shadow-primary/5 overflow-hidden border border-outline-variant/5">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low border-none">
+<th class="px-8 py-5 text-[10px] uppercase tracking-[0.2em] font-bold text-outline">Collection Piece</th>
+<th class="px-6 py-5 text-[10px] uppercase tracking-[0.2em] font-bold text-outline">Category</th>
+<th class="px-6 py-5 text-[10px] uppercase tracking-[0.2em] font-bold text-outline">Availability</th>
+<th class="px-6 py-5 text-[10px] uppercase tracking-[0.2em] font-bold text-outline text-right">Appraised Value</th>
+<th class="px-8 py-5 text-[10px] uppercase tracking-[0.2em] font-bold text-outline text-center">Actions</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-outline-variant/10">
+<!-- Item 1 -->
+<tr class="hover:bg-surface transition-colors duration-200 group">
+<td class="px-8 py-6">
+<div class="flex items-center gap-5">
+<div class="w-14 h-14 bg-surface-container-high overflow-hidden rounded shadow-sm border border-outline-variant/20 flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Luxury diamond necklace displayed on white bust against a minimalist cream background with soft shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCsVtSiV3JrNh_Bsr7YiuC2P6hodXftsKFsBtgN1mBGZ8mp5gzo7SS4OFr_Qo0AESnUQemuoHUS7rIwXJyMm_ywJAJ5fA4Fw7la1msg4Sbdf8q2cRsIyjdf-RzRWzRP_hGrmYkFwUG1px3qUireipo4Soq603eP2viNUWyOUSyffqCe576y8OQ-Zbv7req2T1ZBW4uS6ytA7hLa62GmO_uKkaXErIyru9chE3BV5ljub2g2xbHkf2biGHo4IeOdEdOdIcNb4CV9yWc"/>
+</div>
+<div>
+<p class="font-serif text-base font-bold text-primary">Emerald Sovereign Necklace</p>
+<p class="text-[10px] text-outline uppercase tracking-widest mt-0.5">Ref: IE-293-N</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold uppercase tracking-widest text-primary border border-outline-variant/30">Necklace</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex flex-col">
+<span class="text-sm font-medium text-primary">2 Units</span>
+<div class="w-24 h-1 bg-surface-container-high mt-2 rounded-full overflow-hidden">
+<div class="bg-secondary w-1/4 h-full"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-6 text-right">
+<span class="font-serif text-primary font-bold">€18,500</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex justify-center gap-4">
+<button class="text-outline hover:text-secondary transition-colors" title="Edit Item">
+<span class="material-symbols-outlined">edit_square</span>
+</button>
+<button class="text-outline hover:text-error transition-colors" title="Delete Item">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 2 -->
+<tr class="hover:bg-surface transition-colors duration-200 group">
+<td class="px-8 py-6">
+<div class="flex items-center gap-5">
+<div class="w-14 h-14 bg-surface-container-high overflow-hidden rounded shadow-sm border border-outline-variant/20 flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Exquisite gold and diamond wedding band captured in high-detail macro photography on a dark stone surface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBtDb_RFn7i2eObOz4tXZPEYl-kezN5yO3-w9rSSqlPSoz5oBmeRKDNYnow-wWOZkIWIbw7pgU0agj8RA-1SjrCNXMxy8dr6WHsAaj6VcOG8bTX2odASlm6KqiPSde45_iu9z5rIai7Z-yaGGO-aOkB8EALzxw9REqX-S2r2YJYwlo4OOm_TL4MwKAdX7HLWwIFtkVt6tNb6dnM4vtKmSlkK1GjDdIBL5yLy9Nr9N4CksW2RJTUdKao6OTilJ38yjGhTvAm-lLu4k"/>
+</div>
+<div>
+<p class="font-serif text-base font-bold text-primary">Celestial Aura Band</p>
+<p class="text-[10px] text-outline uppercase tracking-widest mt-0.5">Ref: IE-881-R</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold uppercase tracking-widest text-primary border border-outline-variant/30">Ring</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex flex-col">
+<span class="text-sm font-medium text-primary">12 Units</span>
+<div class="w-24 h-1 bg-surface-container-high mt-2 rounded-full overflow-hidden">
+<div class="bg-primary w-3/4 h-full"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-6 text-right">
+<span class="font-serif text-primary font-bold">€4,200</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex justify-center gap-4">
+<button class="text-outline hover:text-secondary transition-colors" title="Edit Item">
+<span class="material-symbols-outlined">edit_square</span>
+</button>
+<button class="text-outline hover:text-error transition-colors" title="Delete Item">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 3 -->
+<tr class="hover:bg-surface transition-colors duration-200 group">
+<td class="px-8 py-6">
+<div class="flex items-center gap-5">
+<div class="w-14 h-14 bg-surface-container-high overflow-hidden rounded shadow-sm border border-outline-variant/20 flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Set of sapphire drop earrings reflecting light, placed on a mirrored surface with artistic lens flare" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAC7Q0aEf3S1mkJ3pc0JulVEKdV-mj4Nu2Ywvsp1o6lBNAbEWvqPa5oj7H6oLieY5jIFJEx2sfSVM0CDNJAoW5cQJuJKKy1TzJ2SDR7rKa1qA5EUwvY_5MiGIfgIIoPsUAmLpGIiyaPXQ9Ldih2h1hL4d5DGuPObkLS5uK2nmoz9ideYQAQssMenyiG6rNm5R09LijcYOSA-FRubeRzXGpHpCbbATVkkQ6U-fCmkD92sjYHDvx7PWrDR0m0zU3-Zt639hd-QeViO14"/>
+</div>
+<div>
+<p class="font-serif text-base font-bold text-primary">Lumina Drop Earrings</p>
+<p class="text-[10px] text-outline uppercase tracking-widest mt-0.5">Ref: IE-412-E</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold uppercase tracking-widest text-primary border border-outline-variant/30">Earrings</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex flex-col">
+<span class="text-sm font-medium text-error">Out of Stock</span>
+<div class="w-24 h-1 bg-surface-container-high mt-2 rounded-full overflow-hidden">
+<div class="bg-error w-0 h-full"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-6 text-right">
+<span class="font-serif text-primary font-bold">€7,800</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex justify-center gap-4">
+<button class="text-outline hover:text-secondary transition-colors" title="Edit Item">
+<span class="material-symbols-outlined">edit_square</span>
+</button>
+<button class="text-outline hover:text-error transition-colors" title="Delete Item">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Item 4 -->
+<tr class="hover:bg-surface transition-colors duration-200 group">
+<td class="px-8 py-6">
+<div class="flex items-center gap-5">
+<div class="w-14 h-14 bg-surface-container-high overflow-hidden rounded shadow-sm border border-outline-variant/20 flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" data-alt="Intricate silver cuff bracelet with vintage engravings, lying on silk fabric with soft morning light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBwj1AR0rVK-9V_d-gYKy0gIajxUQbWp1oU-WOoDJEwKkentesKEiZUnYLkMEuylr56Qr8dOjiZitj8sP5pxGS9ihJBP6x2X7FeuqCDx0NG-lC781TMGIHG5x-LjazfjmeDqkWH38vzXdhUPEo-hgsxnQ0nJw6saNZp-kDn7H46Q1Liw_Fq8ee15nfFPMxACYd8z_vbnLcuevvFC7_hg1gZVWkF5E0DTj5cr5PNQiZNzBb4Chr4PITw2B40X_6l-qxm5EZnqDc5XSY"/>
+</div>
+<div>
+<p class="font-serif text-base font-bold text-primary">Vintage Heirloom Cuff</p>
+<p class="text-[10px] text-outline uppercase tracking-widest mt-0.5">Ref: IE-104-B</p>
+</div>
+</div>
+</td>
+<td class="px-6 py-6">
+<span class="px-3 py-1 bg-surface-container text-[10px] font-bold uppercase tracking-widest text-primary border border-outline-variant/30">Bracelet</span>
+</td>
+<td class="px-6 py-6">
+<div class="flex flex-col">
+<span class="text-sm font-medium text-primary">5 Units</span>
+<div class="w-24 h-1 bg-surface-container-high mt-2 rounded-full overflow-hidden">
+<div class="bg-secondary w-2/4 h-full"></div>
+</div>
+</div>
+</td>
+<td class="px-6 py-6 text-right">
+<span class="font-serif text-primary font-bold">€12,150</span>
+</td>
+<td class="px-8 py-6">
+<div class="flex justify-center gap-4">
+<button class="text-outline hover:text-secondary transition-colors" title="Edit Item">
+<span class="material-symbols-outlined">edit_square</span>
+</button>
+<button class="text-outline hover:text-error transition-colors" title="Delete Item">
+<span class="material-symbols-outlined">delete</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<!-- Pagination / Footer -->
+<div class="bg-surface-container-low px-8 py-6 flex justify-between items-center">
+<p class="text-xs text-outline uppercase tracking-widest font-bold">Showing 1-4 of 128 Archives</p>
+<div class="flex items-center gap-2">
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant/30 text-primary hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-sm">chevron_left</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center bg-primary text-on-primary font-bold text-xs">1</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant/30 text-primary hover:bg-surface-container transition-all text-xs font-bold">2</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant/30 text-primary hover:bg-surface-container transition-all text-xs font-bold">3</button>
+<button class="w-10 h-10 flex items-center justify-center border border-outline-variant/30 text-primary hover:bg-surface-container transition-all">
+<span class="material-symbols-outlined text-sm">chevron_right</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Footer (Authority Source: JSON & Design System) -->
+<footer class="mt-24 grid grid-cols-1 md:grid-cols-3 gap-12 py-16 border-t border-[#003229]/5 text-primary">
+<div class="space-y-4">
+<h4 class="font-serif text-lg font-bold">The Imperial Editorial</h4>
+<p class="font-sans text-xs tracking-[0.1em] uppercase text-[#003229]/70 leading-relaxed">
+                    © 2024 The Imperial Editorial. All rights reserved.
+                </p>
+</div>
+<div class="flex flex-col gap-3 font-sans text-xs tracking-[0.1em] uppercase">
+<a class="text-[#003229]/70 hover:text-[#735c00] underline decoration-1 transition-opacity" href="#">Inventory Standards</a>
+<a class="text-[#003229]/70 hover:text-[#735c00] underline decoration-1 transition-opacity" href="#">Valuation Guidelines</a>
+<a class="text-[#003229]/70 hover:text-[#735c00] underline decoration-1 transition-opacity" href="#">Ethical Sourcing</a>
+</div>
+<div class="flex flex-col items-start md:items-end gap-3 font-sans text-xs tracking-[0.1em] uppercase">
+<div class="flex gap-6">
+<a class="text-[#003229]/70 hover:text-[#735c00] transition-opacity" href="#">Instagram</a>
+<a class="text-[#003229]/70 hover:text-[#735c00] transition-opacity" href="#">Pinterest</a>
+<a class="text-[#003229]/70 hover:text-[#735c00] transition-opacity" href="#">Email</a>
+</div>
+<p class="text-[10px] text-outline opacity-50 mt-4">System Version 4.2.0-Alpha</p>
+</div>
+</footer>
+</main>
+</body></html>

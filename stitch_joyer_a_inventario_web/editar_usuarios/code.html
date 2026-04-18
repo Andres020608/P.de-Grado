@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Imperial Editorial | Management Suite</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed-variant": "#574400",
+                        "on-tertiary": "#ffffff",
+                        "surface": "#fbf9f4",
+                        "primary-fixed-dim": "#95d3c1",
+                        "secondary": "#735c00",
+                        "primary-container": "#004b3e",
+                        "surface-variant": "#e4e2dd",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#f0eee9",
+                        "on-primary-container": "#7dbaa9",
+                        "surface-bright": "#fbf9f4",
+                        "inverse-on-surface": "#f2f1ec",
+                        "on-error-container": "#93000a",
+                        "inverse-surface": "#30312e",
+                        "primary": "#003229",
+                        "on-secondary-fixed": "#241a00",
+                        "on-background": "#1b1c19",
+                        "surface-container-low": "#f5f3ee",
+                        "outline-variant": "#bfc9c4",
+                        "on-secondary-container": "#745c00",
+                        "background": "#fbf9f4",
+                        "tertiary-fixed-dim": "#e3c46b",
+                        "on-tertiary-container": "#4f3d00",
+                        "primary-fixed": "#b0efdd",
+                        "on-surface": "#1b1c19",
+                        "on-secondary-fixed-variant": "#574500",
+                        "surface-container-high": "#eae8e3",
+                        "surface-dim": "#dbdad5",
+                        "outline": "#707975",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-fixed-variant": "#0a5043",
+                        "inverse-primary": "#95d3c1",
+                        "on-error": "#ffffff",
+                        "tertiary-container": "#c5a853",
+                        "on-secondary": "#ffffff",
+                        "tertiary": "#735c0a",
+                        "on-surface-variant": "#404945",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#e9c349",
+                        "secondary-container": "#fed65b",
+                        "on-primary-fixed": "#00201a",
+                        "on-tertiary-fixed": "#241a00",
+                        "surface-tint": "#2b695a",
+                        "tertiary-fixed": "#ffe089",
+                        "surface-container-highest": "#e4e2dd",
+                        "secondary-fixed": "#ffe088"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "fontFamily": {
+                        "headline": ["Noto Serif"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3, .serif { font-family: 'Noto Serif', serif; }
+        .glass-nav {
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-background selection:bg-secondary/20">
+<!-- TopNavBar -->
+<header class="bg-[#fbf9f4]/80 dark:bg-stone-950/80 backdrop-blur-xl docked full-width top-0 z-50 sticky shadow-sm shadow-[#1b1c19]/5">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-[1920px] mx-auto">
+<div class="font-serif italic text-2xl tracking-tighter text-[#003229] dark:text-emerald-400">The Imperial Editorial</div>
+<div class="hidden md:flex items-center space-x-12 font-serif text-lg tracking-tight">
+<a class="text-[#003229]/70 dark:text-stone-400 hover:text-[#003229] dark:hover:text-stone-200 transition-colors" href="#">Collections</a>
+<a class="text-[#003229]/70 dark:text-stone-400 hover:text-[#003229] dark:hover:text-stone-200 transition-colors" href="#">Bespoke</a>
+<a class="text-[#003229]/70 dark:text-stone-400 hover:text-[#003229] dark:hover:text-stone-200 transition-colors" href="#">Heritage</a>
+<a class="text-[#735c00] border-b border-[#735c00] pb-1" href="#">Account</a>
+</div>
+<div class="flex items-center gap-6">
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity" data-icon="search">search</button>
+<button class="material-symbols-outlined text-primary hover:opacity-80 transition-opacity" data-icon="shopping_bag">shopping_bag</button>
+</div>
+</nav>
+</header>
+<div class="flex min-h-screen">
+<!-- SideNavBar (Admin) -->
+<aside class="hidden md:flex flex-col h-screen w-64 sticky left-0 top-0 bg-[#f5f3ee] dark:bg-stone-900 border-r border-stone-200/10 z-40">
+<div class="p-8">
+<div class="font-serif text-xl text-[#003229] dark:text-emerald-400">Admin Portal</div>
+<div class="font-sans uppercase tracking-[0.1em] text-[10px] text-[#003229]/60">Management Suite</div>
+</div>
+<nav class="flex-1 px-4 space-y-2 mt-8">
+<a class="flex items-center gap-3 px-4 py-3 text-[#003229]/60 dark:text-stone-500 hover:bg-white/50 dark:hover:bg-black/20 hover:pl-2 transition-all duration-300 font-sans uppercase tracking-[0.1em] text-[10px]" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                    Dashboard
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#fbf9f4] dark:bg-stone-950 text-[#735c00] font-bold border-r-2 border-[#735c00] hover:pl-2 transition-all duration-300 font-sans uppercase tracking-[0.1em] text-[10px]" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+                    User Management
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#003229]/60 dark:text-stone-500 hover:bg-white/50 dark:hover:bg-black/20 hover:pl-2 transition-all duration-300 font-sans uppercase tracking-[0.1em] text-[10px]" href="#">
+<span class="material-symbols-outlined" data-icon="diamond">diamond</span>
+                    Inventory
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#003229]/60 dark:text-stone-500 hover:bg-white/50 dark:hover:bg-black/20 hover:pl-2 transition-all duration-300 font-sans uppercase tracking-[0.1em] text-[10px]" href="#">
+<span class="material-symbols-outlined" data-icon="receipt_long">receipt_long</span>
+                    Orders
+                </a>
+<a class="flex items-center gap-3 px-4 py-3 text-[#003229]/60 dark:text-stone-500 hover:bg-white/50 dark:hover:bg-black/20 hover:pl-2 transition-all duration-300 font-sans uppercase tracking-[0.1em] text-[10px]" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                    Settings
+                </a>
+</nav>
+<div class="p-8 mt-auto space-y-4">
+<button class="w-full bg-primary text-on-primary py-3 rounded-lg text-[10px] uppercase tracking-widest hover:opacity-90 transition-opacity">
+                    New Entry
+                </button>
+<div class="pt-4 border-t border-stone-200/20 space-y-2">
+<a class="flex items-center gap-3 text-[#003229]/60 font-sans uppercase tracking-[0.1em] text-[10px] hover:text-primary" href="#">
+<span class="material-symbols-outlined" data-icon="help_outline">help_outline</span> Support
+                    </a>
+<a class="flex items-center gap-3 text-[#003229]/60 font-sans uppercase tracking-[0.1em] text-[10px] hover:text-error" href="#">
+<span class="material-symbols-outlined" data-icon="logout">logout</span> Sign Out
+                    </a>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 px-8 py-12 md:px-16 lg:px-24">
+<!-- Header Section -->
+<div class="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div class="max-w-2xl">
+<h1 class="text-5xl md:text-6xl text-primary mb-4 -tracking-[0.02em]">Management Suite</h1>
+<p class="text-body-lg text-on-surface-variant font-light leading-relaxed">
+                        Orchestrate your bespoke client ecosystem with surgical precision. Our digital atelier empowers you to curate every touchpoint of the Imperial experience.
+                    </p>
+</div>
+<div class="relative w-full md:w-80">
+<input class="w-full bg-transparent border-b border-outline-variant py-3 pr-10 focus:outline-none focus:border-secondary transition-colors placeholder:text-on-surface-variant/40 font-light" placeholder="Search accounts..." type="text"/>
+<span class="material-symbols-outlined absolute right-2 top-3 text-on-surface-variant/50" data-icon="search">search</span>
+</div>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8">
+<!-- Administrator: User Table -->
+<div class="lg:col-span-8 bg-surface-container-low p-8 rounded-xl shadow-sm">
+<div class="flex justify-between items-center mb-10">
+<h2 class="text-2xl text-primary tracking-tight">Active Profiles</h2>
+<span class="font-sans uppercase tracking-widest text-[10px] text-on-surface-variant/60">Total: 42 Accounts</span>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left">
+<thead class="font-sans uppercase tracking-widest text-[10px] text-on-surface-variant/60">
+<tr>
+<th class="pb-6">Profile</th>
+<th class="pb-6">Email Address</th>
+<th class="pb-6">Status</th>
+<th class="pb-6 text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="text-on-background font-body font-light">
+<tr class="hover:bg-white/40 transition-colors group">
+<td class="py-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="portrait of a man with a beard in a luxury suit, editorial fashion style with soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZ5BB-tozaIFdDQ1ryqF2-ici1RBSqmN1yWP-_Y6wrnxckgMYE1ndGNcuqf12k69gN8u3YomursFwxEzlluFDyAUtc-L7Q_R6F4KNhDN_WV-YdYGCvNNx8jxxCAfY_5C4_f9lq6CTgZAsRZU1n_QrzwhgsfNLJBoZ1DnJQTU-IZO9OEdFjNCH0HdKWic_3q1k7rIGIIxuBLO2gvJRcS9yH5hSc5bUeUpLNHdGHiNFRhbkbK5jC3yxK0rmm5RQhwO3TYTfoMbX38qc"/>
+</div>
+<div>
+<div class="font-medium">Julian Vane</div>
+<div class="text-[10px] uppercase tracking-tighter opacity-60">Master Craftsman</div>
+</div>
+</td>
+<td class="py-4 text-sm">j.vane@imperial-editorial.com</td>
+<td class="py-4">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-xs ml-2">Admin</span>
+</td>
+<td class="py-4 text-right">
+<button class="material-symbols-outlined text-on-surface-variant/40 hover:text-error transition-colors" data-icon="delete">delete</button>
+</td>
+</tr>
+<tr class="hover:bg-white/40 transition-colors group">
+<td class="py-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="professional woman in a dark emerald dress, high-end studio portrait with dramatic side lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBLc1gj_QlDWjRqOlICksRngC9HLleeYscGQVShDcA2AT_M6pDTtZH-WdorItwskHX4bXbi0DVfH2cRirUw0WWikxhwm5RIvT3M-bZ-jj883_WlVPI14_CK40GrUA5rmxeCI-1i60MYe-7tPNr-aLTPjuSVkvYnslD-vtinzx_NIgMV32ceGeEpzCaT96wqz5bgVnqr4eHnS_sJ3Sin-YEFUNHLVhmtoxlJsK8EFetk_cBMkOj36xL4sIRxFB3X5i3gW8XYQ7ORmD0"/>
+</div>
+<div>
+<div class="font-medium">Elena Thorne</div>
+<div class="text-[10px] uppercase tracking-tighter opacity-60">Diamond Member</div>
+</div>
+</td>
+<td class="py-4 text-sm">elena.t@curated.luxury</td>
+<td class="py-4">
+<span class="inline-block w-2 h-2 rounded-full bg-outline-variant"></span>
+<span class="text-xs ml-2">Client</span>
+</td>
+<td class="py-4 text-right">
+<button class="material-symbols-outlined text-on-surface-variant/40 hover:text-error transition-colors" data-icon="delete">delete</button>
+</td>
+</tr>
+<tr class="hover:bg-white/40 transition-colors group">
+<td class="py-4 flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="sophisticated gentleman in a high-end luxury setting, close-up editorial portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAIpqYYq2Vo3JP8SyHAexlRHr5LChGZa9mO8-t7XYFV6v9yWbo0oJtgZKfdjPZ75DVykT-YTe15msfsxW8Tz-FfiCm7b5AXpU3ZWJ-P3oIMR6_6TCZv_itufVWazBr9k6Xm1p_pD63_kBDMpGkGDL6zcQAzL8DbjTZMr4jy-tYYf3un4RDZ7hjAiL2iiE-uER7wg1IUpwtwJPJKcZhCpXrEuJ0gZ0G2-t-jCOsHcUh30wycSu3v1mF1mG5KFjyv-0trvI660A9wt1g"/>
+</div>
+<div>
+<div class="font-medium">Marcus Sterling</div>
+<div class="text-[10px] uppercase tracking-tighter opacity-60">Legacy Concierge</div>
+</div>
+</td>
+<td class="py-4 text-sm">m.sterling@imperial.com</td>
+<td class="py-4">
+<span class="inline-block w-2 h-2 rounded-full bg-secondary"></span>
+<span class="text-xs ml-2">Admin</span>
+</td>
+<td class="py-4 text-right">
+<button class="material-symbols-outlined text-on-surface-variant/40 hover:text-error transition-colors" data-icon="delete">delete</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<!-- Client: Edit Profile Section -->
+<div class="lg:col-span-4 flex flex-col gap-8">
+<!-- Profile Card Overlay -->
+<div class="bg-primary text-on-primary p-8 rounded-xl shadow-lg relative overflow-hidden">
+<div class="relative z-10">
+<h3 class="text-2xl mb-2 italic">Personal Atelier</h3>
+<p class="text-sm opacity-70 mb-8">Curate your personal identity within our heritage portal.</p>
+<form class="space-y-8">
+<div class="space-y-1">
+<label class="block font-sans uppercase tracking-widest text-[10px] text-on-primary/60">Full Name</label>
+<input class="w-full bg-transparent border-b border-on-primary/20 py-2 focus:outline-none focus:border-secondary transition-colors text-lg italic placeholder:text-on-primary/20" type="text" value="Alexander Imperial"/>
+</div>
+<div class="space-y-1">
+<label class="block font-sans uppercase tracking-widest text-[10px] text-on-primary/60">New Password</label>
+<input class="w-full bg-transparent border-b border-on-primary/20 py-2 focus:outline-none focus:border-secondary transition-colors text-lg placeholder:text-on-primary/20" placeholder="••••••••••••" type="password"/>
+</div>
+<button class="w-full bg-secondary text-on-secondary-fixed py-4 rounded-lg font-sans uppercase tracking-[0.15em] text-xs font-bold hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-black/10" type="submit">
+                                    Save Changes
+                                </button>
+</form>
+</div>
+<!-- Decorative element -->
+<div class="absolute -right-12 -bottom-12 w-48 h-48 rounded-full border border-secondary/20 blur-2xl"></div>
+</div>
+<!-- Side Editorial Card -->
+<div class="bg-surface-container-highest flex-1 p-8 rounded-xl relative overflow-hidden group">
+<img class="absolute inset-0 w-full h-full object-cover opacity-10 group-hover:opacity-20 transition-opacity" data-alt="close up of a gold diamond necklace on a marble stand with soft shadows and rich textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQ8CaFdMd3L4Dnp2zBiizLULA2Jtlkcrjf5I-SZzuDa8Jbant8KxfXY9UpWGppAfvgqWiW-lNOQQmZl1dLezaYFdpdi6AuksLIeSeXNcZrRNp-808tKImjflhj_4OzKwUTI2P_Ppbdb8jWDyaE34b3oVapgiZF0ZIlwFngtKoT4uSoIUkuMX-G9oY6tWtobf6ChLj5CiiOOWqnEYrkV7EVZUGvQcZwukj6j1SJJbaf9bUcOGgIwissvl-Og3OT4ChWePMxnpNtglk"/>
+<div class="relative z-10 h-full flex flex-col justify-between">
+<div>
+<span class="material-symbols-outlined text-secondary mb-4" data-icon="diamond">diamond</span>
+<h4 class="text-xl text-primary leading-tight">Membership Status: <br/><span class="italic">Gold Tier</span></h4>
+</div>
+<div class="text-[10px] uppercase tracking-widest text-on-surface-variant leading-relaxed">
+                                You have 2 pending bespoke <br/>consultations this month.
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Transactional Proofing Section (Asymmetric) -->
+<div class="mt-24 mb-12">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div class="order-2 md:order-1">
+<div class="w-full aspect-[4/3] bg-surface-container-low rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover" data-alt="minimalist architectural photo of a white gallery space with geometric shadows and a gold detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAABJalEmZuaB24PBrEPYZeG5-DqHH7ZhV0cRKzZN49hIdA0z0Gny1iLeOWfQa8FwXARMoyMf0QBM2Tc0QtbnOAN724s-_nVFZ13W8mYWpPvJtxJ5n8Y1JimtuNsS3LGD5ktUFannEF5V3-iscZfpp9OQ2TchsTVIGiKGXRusbR9jhJ2R-FYXoHOS_PBvRSH3b4L8kQ-UiuACtRpKNL6zLI30UwVFxVAiP4QVnOiMg0uAV1HY3K6U-R2uQzw-WIdTiHfSjj6VRgzgI"/>
+<div class="absolute inset-0 bg-primary/5"></div>
+</div>
+</div>
+<div class="order-1 md:order-2">
+<h2 class="text-4xl text-primary mb-6 italic">Secure Heritage</h2>
+<p class="text-on-surface-variant font-light mb-8 leading-relaxed">
+                            Every modification to the Imperial Registry is logged with cryptographic permanence. We prioritize the sanctity of your digital vault above all else.
+                        </p>
+<a class="inline-block font-sans uppercase tracking-[0.2em] text-[10px] font-bold text-secondary border-b border-secondary pb-1 hover:pb-2 transition-all" href="#">View Audit Logs</a>
+</div>
+</div>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="w-full border-t border-stone-200/20 bg-[#fbf9f4] dark:bg-stone-950 mt-24">
+<div class="flex flex-col md:flex-row justify-between items-center px-12 py-16 w-full max-w-[1920px] mx-auto">
+<div class="font-serif italic text-lg text-[#003229] dark:text-emerald-400 mb-8 md:mb-0">The Imperial Editorial</div>
+<div class="flex flex-wrap justify-center gap-12 font-sans text-xs tracking-widest uppercase">
+<a class="text-[#003229]/50 dark:text-stone-600 hover:text-[#735c00] transition-colors" href="#">Privacy Policy</a>
+<a class="text-[#003229]/50 dark:text-stone-600 hover:text-[#735c00] transition-colors" href="#">Terms of Service</a>
+<a class="text-[#003229]/50 dark:text-stone-600 hover:text-[#735c00] transition-colors" href="#">Press Kit</a>
+<a class="text-[#003229]/50 dark:text-stone-600 hover:text-[#735c00] transition-colors" href="#">Contact</a>
+</div>
+<div class="mt-8 md:mt-0 text-[#003229]/40 font-sans text-[10px] tracking-widest uppercase">
+                © 2024 The Imperial Editorial. All Rights Reserved.
+            </div>
+</div>
+</footer>
+</body></html>

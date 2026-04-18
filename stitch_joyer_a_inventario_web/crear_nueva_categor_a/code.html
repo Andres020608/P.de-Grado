@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Imperial Editorial - Category Management</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-primary-fixed-variant": "#0a5043",
+                    "on-error": "#ffffff",
+                    "on-background": "#1b1c19",
+                    "primary-container": "#004b3e",
+                    "surface-variant": "#e4e2dd",
+                    "tertiary-fixed": "#ffe089",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#eae8e3",
+                    "outline-variant": "#bfc9c4",
+                    "on-tertiary": "#ffffff",
+                    "inverse-surface": "#30312e",
+                    "surface-tint": "#2b695a",
+                    "surface-bright": "#fbf9f4",
+                    "on-tertiary-fixed-variant": "#574400",
+                    "surface-container-highest": "#e4e2dd",
+                    "surface": "#fbf9f4",
+                    "inverse-primary": "#95d3c1",
+                    "error-container": "#ffdad6",
+                    "surface-container-lowest": "#ffffff",
+                    "on-secondary-fixed": "#241a00",
+                    "secondary-container": "#fed65b",
+                    "tertiary-fixed-dim": "#e3c46b",
+                    "primary-fixed-dim": "#95d3c1",
+                    "on-primary-container": "#7dbaa9",
+                    "on-tertiary-fixed": "#241a00",
+                    "on-tertiary-container": "#4f3d00",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-surface": "#1b1c19",
+                    "on-primary-fixed": "#00201a",
+                    "inverse-on-surface": "#f2f1ec",
+                    "secondary-fixed-dim": "#e9c349",
+                    "primary": "#003229",
+                    "secondary-fixed": "#ffe088",
+                    "error": "#ba1a1a",
+                    "on-error-container": "#93000a",
+                    "surface-dim": "#dbdad5",
+                    "on-primary": "#ffffff",
+                    "tertiary": "#735c0a",
+                    "primary-fixed": "#b0efdd",
+                    "on-secondary-container": "#745c00",
+                    "secondary": "#735c00",
+                    "surface-container-low": "#f5f3ee",
+                    "tertiary-container": "#c5a853",
+                    "surface-container": "#f0eee9",
+                    "on-surface-variant": "#404945",
+                    "outline": "#707975",
+                    "background": "#fbf9f4"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif"],
+                    "body": ["Manrope"],
+                    "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3, .font-noto-serif { font-family: 'Noto Serif', serif; }
+        .glass-header { backdrop-filter: blur(20px); }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen">
+<!-- TopNavBar -->
+<header class="bg-[#fbf9f4]/80 dark:bg-emerald-950/80 backdrop-blur-md sticky top-0 z-50 shadow-[0_20px_40px_rgba(27,28,25,0.05)] font-noto-serif tracking-tight">
+<div class="flex justify-between items-center w-full px-8 py-4">
+<div class="text-2xl font-bold font-noto-serif text-emerald-900 dark:text-emerald-50">The Imperial Editorial</div>
+<div class="flex items-center space-gap-6 flex-1 justify-end">
+<div class="relative hidden md:block mr-8 w-64">
+<input class="w-full bg-transparent border-b border-outline-variant py-1 px-2 focus:border-secondary transition-colors duration-300 outline-none text-sm font-body" placeholder="Search archives..." type="text"/>
+</div>
+<div class="flex space-x-6 items-center">
+<button class="text-emerald-800/60 hover:text-amber-700 transition-colors duration-300 scale-98 active:opacity-80">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-emerald-900 font-semibold transition-colors duration-300 scale-98 active:opacity-80 flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-xs font-label uppercase tracking-widest hidden lg:inline">Atelier Admin</span>
+</button>
+</div>
+</div>
+</div>
+</header>
+<div class="flex">
+<!-- SideNavBar -->
+<aside class="bg-[#f5f3ee] dark:bg-emerald-900/20 h-screen w-64 fixed left-0 top-0 pt-20 bg-emerald-900/5 hidden md:block z-40">
+<div class="flex flex-col h-full space-y-2 p-6">
+<div class="mb-10 px-2">
+<div class="font-noto-serif text-lg text-emerald-900 dark:text-emerald-50">The Atelier</div>
+<div class="font-manrope uppercase tracking-[0.1em] text-[10px] font-semibold text-emerald-800/50">Management Suite</div>
+</div>
+<nav class="space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-800/50 hover:bg-[#ffffff]/50 hover:text-emerald-900 transition-all ease-out duration-200 hover:translate-x-1 font-manrope uppercase tracking-[0.1em] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+                        Dashboard
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-800/50 hover:bg-[#ffffff]/50 hover:text-emerald-900 transition-all ease-out duration-200 hover:translate-x-1 font-manrope uppercase tracking-[0.1em] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+                        Inventory
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-900 bg-[#ffffff] shadow-sm border-r-2 border-amber-600 transition-all ease-out duration-200 hover:translate-x-1 font-manrope uppercase tracking-[0.1em] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+                        Categories
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-800/50 hover:bg-[#ffffff]/50 hover:text-emerald-900 transition-all ease-out duration-200 hover:translate-x-1 font-manrope uppercase tracking-[0.1em] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="local_shipping">local_shipping</span>
+                        Suppliers
+                    </a>
+<a class="flex items-center gap-3 px-4 py-3 text-emerald-800/50 hover:bg-[#ffffff]/50 hover:text-emerald-900 transition-all ease-out duration-200 hover:translate-x-1 font-manrope uppercase tracking-[0.1em] text-xs font-semibold" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+                        Settings
+                    </a>
+</nav>
+<div class="mt-auto pb-8">
+<button class="w-full bg-primary text-on-primary py-4 px-2 text-[10px] font-label uppercase tracking-widest hover:bg-primary-container transition-colors shadow-sm">
+                        New Product
+                    </button>
+</div>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-64 p-8 lg:p-16">
+<div class="max-w-6xl mx-auto">
+<!-- Editorial Header Section -->
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-end mb-20">
+<div class="lg:col-span-7">
+<h2 class="text-xs font-label uppercase tracking-[0.3em] text-secondary mb-6">Curation Suite</h2>
+<h1 class="text-5xl md:text-7xl font-headline tracking-tighter leading-none text-primary">Define New Collection</h1>
+</div>
+<div class="lg:col-span-4 lg:col-start-9">
+<p class="text-lg font-body text-on-surface-variant leading-relaxed">
+                            Every category is a chapter in our brand's narrative. Define the visual and narrative boundaries for your new curation.
+                        </p>
+</div>
+</div>
+<!-- Form Section - Asymmetric Bento Layout -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- Left Column: Image/Visual Anchor -->
+<div class="lg:col-span-1 space-y-8">
+<div class="aspect-[3/4] bg-surface-container-low overflow-hidden group relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="close-up of a luxury diamond necklace draped over a textured white sculpture with soft cinematic lighting and deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCyeNkMmprLFGytZhadrpBZM8_t1aM56HbHXZTgxp9fHxK-gmRDNh9lt1PO9r5Myb2igf_g_I5JduwJ1qdaqo0I_UfUkhP6yTEhX-CpJdwf7onaEB_FuBAYoSAkGLIF9sxBH_Q3QJq0qnUqIXAc5JBvRM-aqq6IjDDNRrvP9wByDxjYqNwk04R_RZL_PaTmKtO99VxzRjjFQYQ5K6Qhie8EvoAJli66ZfIN4B367zQ7ookW2jqidvTDDUDtRppYaqP4YKXqSepc0HI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent flex items-end p-8">
+<span class="text-on-primary font-label text-[10px] tracking-widest uppercase">Visual Reference: Haute Joaillerie</span>
+</div>
+</div>
+<div class="p-8 bg-surface-container-low">
+<h3 class="font-headline text-xl mb-4 text-primary">Curation Guide</h3>
+<p class="text-sm text-on-surface-variant leading-relaxed font-body">
+                                Ensure the editorial direction aligns with the Seasonal Vault guidelines. High contrast imagery and serif-only typography are mandatory for top-tier categories.
+                            </p>
+</div>
+</div>
+<!-- Right Column: Form Fields -->
+<div class="lg:col-span-2 space-y-12">
+<form class="space-y-16">
+<!-- Field: Category Name -->
+<div class="group">
+<label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2 group-focus-within:text-secondary transition-colors">Category Name</label>
+<input class="w-full bg-transparent border-0 border-b border-outline-variant py-4 text-3xl font-headline focus:ring-0 focus:border-secondary placeholder:text-surface-variant transition-all" placeholder="e.g., Celestial Archives" type="text"/>
+</div>
+<!-- Dual Fields: Parent & Type -->
+<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+<div class="group">
+<label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2 group-focus-within:text-secondary">Parent Curation</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant py-4 font-body focus:ring-0 focus:border-secondary transition-all appearance-none cursor-pointer">
+<option>Root Level</option>
+<option>Signature Collections</option>
+<option>Bespoke Watches</option>
+<option>The Heritage Vault</option>
+</select>
+</div>
+<div class="group">
+<label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2 group-focus-within:text-secondary">Display Logic</label>
+<select class="w-full bg-transparent border-0 border-b border-outline-variant py-4 font-body focus:ring-0 focus:border-secondary transition-all appearance-none cursor-pointer">
+<option>Editorial Grid (Asymmetric)</option>
+<option>Standard Inventory</option>
+<option>Full-Bleed Gallery</option>
+</select>
+</div>
+</div>
+<!-- Field: Editorial Direction -->
+<div class="group">
+<label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2 group-focus-within:text-secondary">Editorial Direction</label>
+<textarea class="w-full bg-transparent border-0 border-b border-outline-variant py-4 text-lg font-body focus:ring-0 focus:border-secondary placeholder:text-surface-variant transition-all resize-none" placeholder="Describe the atmosphere, material focus, and storytelling intent for this category..." rows="4"></textarea>
+</div>
+<!-- Field: Gallery Chips (Metadata) -->
+<div>
+<label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-6">Material Focus Tags</label>
+<div class="flex flex-wrap gap-4">
+<button class="px-6 py-2 border border-secondary rounded-full text-[10px] font-label uppercase tracking-widest text-secondary bg-secondary/5 ring-1 ring-secondary ring-offset-2 ring-offset-background" type="button">24k Gold</button>
+<button class="px-6 py-2 border border-outline-variant rounded-full text-[10px] font-label uppercase tracking-widest text-on-surface-variant hover:border-secondary transition-colors" type="button">Platinum</button>
+<button class="px-6 py-2 border border-outline-variant rounded-full text-[10px] font-label uppercase tracking-widest text-on-surface-variant hover:border-secondary transition-colors" type="button">VVS Diamonds</button>
+<button class="px-6 py-2 border border-outline-variant rounded-full text-[10px] font-label uppercase tracking-widest text-on-surface-variant hover:border-secondary transition-colors" type="button">Ethical Sourcing</button>
+<button class="px-6 py-2 border border-outline-variant rounded-full text-[10px] font-label uppercase tracking-widest text-on-surface-variant hover:border-secondary transition-colors" type="button">Bespoke Only</button>
+</div>
+</div>
+<!-- Actions -->
+<div class="pt-12 flex items-center justify-between">
+<button class="text-xs font-label uppercase tracking-[0.2em] text-on-surface-variant hover:text-error transition-colors border-b border-transparent hover:border-error pb-1" type="button">Discard Draft</button>
+<div class="flex gap-8">
+<button class="text-xs font-label uppercase tracking-[0.2em] text-primary border-b border-primary pb-1 hover:text-secondary hover:border-secondary transition-all" type="button">Save as Template</button>
+<button class="bg-primary text-on-primary px-12 py-5 text-xs font-label uppercase tracking-[0.3em] hover:bg-primary-container transition-all shadow-[0_10px_30px_rgba(0,50,41,0.2)]" type="submit">Publish Category</button>
+</div>
+</div>
+</form>
+</div>
+</div>
+<!-- History/Existing Categories Section - Tonal Shift -->
+<section class="mt-32 pt-20 border-t border-outline-variant/10">
+<div class="flex justify-between items-baseline mb-12">
+<h2 class="font-headline text-4xl text-primary">Recent Curations</h2>
+<a class="text-xs font-label uppercase tracking-widest text-secondary" href="#">View Registry</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+<div class="bg-surface-container p-8 space-y-4 hover:bg-surface-container-high transition-colors group">
+<span class="text-[10px] font-label tracking-widest text-secondary">01</span>
+<h3 class="font-headline text-xl">The Midnight Pulse</h3>
+<p class="text-xs font-body text-on-surface-variant line-clamp-2">High-contrast onyx and diamond pairings for evening gala collections.</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform" data-icon="arrow_right_alt">arrow_right_alt</span>
+</div>
+<div class="bg-surface-container p-8 space-y-4 hover:bg-surface-container-high transition-colors group">
+<span class="text-[10px] font-label tracking-widest text-secondary">02</span>
+<h3 class="font-headline text-xl">Solaris Heritage</h3>
+<p class="text-xs font-body text-on-surface-variant line-clamp-2">Sun-drenched yellow gold pieces inspired by 1920s architecture.</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform" data-icon="arrow_right_alt">arrow_right_alt</span>
+</div>
+<div class="bg-surface-container-low p-8 space-y-4 hover:bg-surface-container-high transition-colors group border-2 border-dashed border-outline-variant/30 flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-outline-variant text-4xl mb-2" data-icon="add_circle">add_circle</span>
+<span class="text-[10px] font-label tracking-widest text-on-surface-variant">Create Sub-category</span>
+</div>
+<div class="bg-surface-container p-8 space-y-4 hover:bg-surface-container-high transition-colors group">
+<span class="text-[10px] font-label tracking-widest text-secondary">04</span>
+<h3 class="font-headline text-xl">The Silk Route</h3>
+<p class="text-xs font-body text-on-surface-variant line-clamp-2">Exotic pearls and silk-infused metalwork from global artisans.</p>
+<span class="material-symbols-outlined text-primary group-hover:translate-x-2 transition-transform" data-icon="arrow_right_alt">arrow_right_alt</span>
+</div>
+</div>
+</section>
+</div>
+</main>
+</div>
+<!-- Mobile Bottom NavBar (Visible on MD and below) -->
+<nav class="md:hidden fixed bottom-0 left-0 right-0 bg-[#fbf9f4]/95 backdrop-blur-md z-50 flex justify-around py-4 border-t border-outline-variant/10">
+<button class="flex flex-col items-center gap-1 text-emerald-800/60">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span class="text-[9px] font-label uppercase">Dash</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-emerald-900 font-semibold">
+<span class="material-symbols-outlined" data-icon="category">category</span>
+<span class="text-[9px] font-label uppercase">Categories</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-emerald-800/60">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span class="text-[9px] font-label uppercase">Stock</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-emerald-800/60">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+<span class="text-[9px] font-label uppercase">Profile</span>
+</button>
+</nav>
+</body></html>
