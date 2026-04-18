@@ -8,8 +8,8 @@
         </div>
         <div class="flex items-center space-x-6">
             <div class="hidden md:flex items-center space-x-8 mr-8">
-                <a href="{{ route('inventory.index') }}" class="text-emerald-900 dark:text-emerald-50 font-semibold font-noto-serif tracking-tight hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-300">Inventory</a>
-                <a href="#" class="text-emerald-800/60 dark:text-emerald-200/60 font-noto-serif tracking-tight hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-300">Analytics</a>
+                <a href="{{ route('admin.products.index') }}" class="text-emerald-900 dark:text-emerald-50 font-semibold font-noto-serif tracking-tight hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-300">Inventario</a>
+                <a href="#" class="text-emerald-800/60 dark:text-emerald-200/60 font-noto-serif tracking-tight hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-300">Graficas</a>
                 <a href="#" class="text-emerald-800/60 dark:text-emerald-200/60 font-noto-serif tracking-tight hover:text-amber-700 dark:hover:text-amber-400 transition-colors duration-300">Showroom</a>
             </div>
             <div class="flex items-center space-x-4">
@@ -19,7 +19,7 @@
 
                 <!-- User Dropdown Menu -->
                 <div class="relative" x-data="{ open: false }">
-                    <button @click="open = !open" class="flex items-center gap-2 scale-98 active:opacity-80 transition-all text-emerald-900 hover:text-amber-700">
+                    <button @click="open = !open" class="flex items-center gap-2 scale-98 active:opacity-80 transition-all text-emerald-900">
                         <span class="material-symbols-outlined" data-icon="person">person</span>
                         <span class="material-symbols-outlined text-sm" x-show="!open">expand_more</span>
                         <span class="material-symbols-outlined text-sm" x-show="open">expand_less</span>

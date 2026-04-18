@@ -16,7 +16,7 @@ class Product extends Model
         'price',
         'stock',
         'metal_hallmark',
-        'image_url',
+        'image',
         'is_active',
     ];
 
@@ -36,5 +36,10 @@ class Product extends Model
     public function supplier(): BelongsTo
     {
         return $this->belongsTo(Supplier::class);
+    }
+
+    public function getImageUrlAttribute(): string
+    {
+        return $this->image ? asset('storage/images/'.$this->image) : null;
     }
 }

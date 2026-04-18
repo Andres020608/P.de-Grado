@@ -30,7 +30,13 @@ class ProductController extends Controller
 
     public function store(StoreProductRequest $request): RedirectResponse
     {
-        Product::create($request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        Product::create($data);
 
         return redirect()->route('admin.products.index')
             ->with('success', 'Producto creado exitosamente.');
@@ -51,7 +57,17 @@ class ProductController extends Controller
 
     public function update(UpdateProductRequest $request, Product $product): RedirectResponse
     {
-        $product->update($request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($product->image) {
+                \Storage::disk('public')->delete($product->image);
+            }
+            $data['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        $product->update($data);
 
         return redirect()->route('admin.products.index')
             ->with('success', 'Producto actualizado exitosamente.');

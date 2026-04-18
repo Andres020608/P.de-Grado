@@ -13,6 +13,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
 
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @livewireStyles
 
         <style>
             .material-symbols-outlined {
@@ -27,5 +28,7 @@
     </head>
     <body class="min-h-screen bg-[#fbf9f4] text-[#1b1c19] antialiased" style="font-family: 'Manrope', sans-serif;">
         {{ $slot }}
+
+        @livewireScripts
     </body>
 </html>

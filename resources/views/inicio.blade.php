@@ -36,6 +36,12 @@
                 <p class="text-sm font-medium text-gray-900">{{ auth()->user()->name }}</p>
                 <p class="text-xs text-gray-500">{{ auth()->user()->email }}</p>
             </div>
+            @if(auth()->user()->isAdmin())
+                <a href="{{ route('admin.products.index') }}" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition">
+                    <span class="material-symbols-outlined text-base">admin_panel_settings</span>
+                    Panel de Administración
+                </a>
+            @endif
             <a href="{{ route('profile') }}" class="flex items-center gap-2 px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 transition">
                 <span class="material-symbols-outlined text-base">edit</span>
                 Editar perfil

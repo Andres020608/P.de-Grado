@@ -14,6 +14,7 @@
 
     <!-- Styles -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 
     <script id="tailwind-config">
         tailwind.config = {
@@ -110,5 +111,7 @@
             </div>
         </main>
     </div>
+
+    @livewireScripts
 </body>
 </html>

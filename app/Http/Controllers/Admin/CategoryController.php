@@ -34,7 +34,13 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request): RedirectResponse
     {
-        Category::create($request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            $data['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        Category::create($data);
 
         return redirect()->route('admin.categories.index')
             ->with('success', 'Categoría creada exitosamente.');
@@ -61,7 +67,17 @@ class CategoryController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category): RedirectResponse
     {
-        $category->update($request->validated());
+        $data = $request->validated();
+
+        if ($request->hasFile('image')) {
+            // Delete old image if exists
+            if ($category->image) {
+                \Storage::disk('public')->delete($category->image);
+            }
+            $data['image'] = $request->file('image')->store('images', 'public');
+        }
+
+        $category->update($data);
 
         return redirect()->route('admin.categories.index')
             ->with('success', 'Categoría actualizada exitosamente.');

@@ -4,7 +4,7 @@
             <h1 class="text-2xl font-semibold text-gray-900">Editar Categoría</h1>
         </div>
 
-        <form method="POST" action="{{ route('admin.categories.update', $category) }}" class="p-6 space-y-6">
+        <form method="POST" action="{{ route('admin.categories.update', $category) }}" enctype="multipart/form-data" class="p-6 space-y-6">
             @csrf
             @method('PUT')
 
@@ -27,10 +27,13 @@
             </div>
 
             <div>
-                <label for="visual_reference" class="block text-sm font-medium text-gray-700">Referencia Visual</label>
-                <input type="text" name="visual_reference" id="visual_reference" value="{{ old('visual_reference', $category->visual_reference) }}"
+                <label for="image" class="block text-sm font-medium text-gray-700">Imagen</label>
+                <input type="file" name="image" id="image" accept="image/*"
                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                @error('visual_reference')
+                @if($category->image)
+                    <p class="mt-1 text-sm text-gray-600">Imagen actual: <img src="{{ $category->image_url }}" alt="Imagen actual" class="w-20 h-20 object-cover"></p>
+                @endif
+                @error('image')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
             </div>

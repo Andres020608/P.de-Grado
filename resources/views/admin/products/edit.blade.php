@@ -4,7 +4,7 @@
             <h1 class="text-2xl font-semibold text-gray-900">Editar Producto</h1>
         </div>
 
-        <form method="POST" action="{{ route('admin.products.update', $product) }}" class="p-6 space-y-6">
+        <form method="POST" action="{{ route('admin.products.update', $product) }}" enctype="multipart/form-data" class="p-6 space-y-6">
             @csrf
             @method('PUT')
 
@@ -102,15 +102,19 @@
             </div>
 
             <div>
-                <label for="image_url" class="block text-sm font-medium text-gray-700">URL de Imagen</label>
-                <input type="url" name="image_url" id="image_url" value="{{ old('image_url', $product->image_url) }}"
+                <label for="image" class="block text-sm font-medium text-gray-700">Imagen</label>
+                <input type="file" name="image" id="image" accept="image/*"
                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                @error('image_url')
+                @if($product->image)
+                    <p class="mt-1 text-sm text-gray-600">Imagen actual: <img src="{{ $product->image_url }}" alt="Imagen actual" class="w-20 h-20 object-cover"></p>
+                @endif
+                @error('image')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="flex items-center">
+                <input type="hidden" name="is_active" value="0">
                 <input type="checkbox" name="is_active" id="is_active" value="1" {{ old('is_active', $product->is_active) ? 'checked' : '' }}
                        class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
                 <label for="is_active" class="ml-2 block text-sm text-gray-700">Producto Activo</label>

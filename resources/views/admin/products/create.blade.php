@@ -4,7 +4,7 @@
             <h1 class="text-2xl font-semibold text-gray-900">Crear Nuevo Producto</h1>
         </div>
 
-        <form method="POST" action="{{ route('admin.products.store') }}" class="p-6 space-y-6">
+        <form method="POST" action="{{ route('admin.products.store') }}" enctype="multipart/form-data" class="p-6 space-y-6">
             @csrf
 
             <div class="grid grid-cols-2 gap-4">
@@ -101,15 +101,16 @@
             </div>
 
             <div>
-                <label for="image_url" class="block text-sm font-medium text-gray-700">URL de Imagen</label>
-                <input type="url" name="image_url" id="image_url" value="{{ old('image_url') }}"
+                <label for="image" class="block text-sm font-medium text-gray-700">Imagen</label>
+                <input type="file" name="image" id="image" accept="image/*"
                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                @error('image_url')
+                @error('image')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
             </div>
 
             <div class="flex items-center">
+                <input type="hidden" name="is_active" value="0">
                 <input type="checkbox" name="is_active" id="is_active" value="1" {{ old('is_active', true) ? 'checked' : '' }}
                        class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
                 <label for="is_active" class="ml-2 block text-sm text-gray-700">Producto Activo</label>
