@@ -7,9 +7,9 @@
 <div class="flex items-center space-x-12">
 <a class="text-2xl font-serif font-bold text-[#003229] dark:text-[#fbf9f4] tracking-tighter" href="#">Jessica Joyería</a>
 <div class="hidden md:flex space-x-8">
-<a class="font-serif text-lg tracking-tight text-[#735c00] border-b-2 border-[#735c00] pb-1 hover:text-[#735c00] transition-colors duration-300" href="#">Home</a>
-<a class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300" href="#">Collection</a>
-<a class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300" href="#herencia">About</a>
+<a class="font-serif text-lg tracking-tight text-[#735c00] border-b-2 border-[#735c00] pb-1 hover:text-[#735c00] transition-colors duration-300" href="#">Inicio</a>
+<a class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300" href="#">Colección</a>
+<a class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300" href="#herencia">Nosotros</a>
 </div>
 </div>
 <div class="flex items-center space-x-6">
@@ -56,8 +56,8 @@
         </div>
     </div>
 @else
-    <a href="{{ route('login') }}" class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300 scale-95 active:opacity-80 transition-all">Login</a>
-    <a href="{{ route('register') }}" class="bg-primary text-on-primary px-6 py-2 rounded-lg font-serif text-lg tracking-tight hover:bg-primary-container transition-all scale-95 active:opacity-80">Sign Up</a>
+    <a href="{{ route('login') }}" class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300 scale-95 active:opacity-80 transition-all">Iniciar Sesión</a>
+    <a href="{{ route('register') }}" class="bg-primary text-on-primary px-6 py-2 rounded-lg font-serif text-lg tracking-tight hover:bg-primary-container transition-all scale-95 active:opacity-80">Registrarse</a>
 @endauth
 </div>
 </nav>
@@ -152,19 +152,19 @@
 <div class="aspect-[1/1] bg-surface-container mb-4 overflow-hidden">
 <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYdXc5-2Giua33L1f8hl4eC5aF77_AJmVJ8DpThrkuCW7g2F7kAHJUfQP0h1bN12Q6ONXUJ23CfvxM95bE5u218C99TqRXMRfQBK200SuchyIsAirVOoir-22XCNSbMzkhPnwahbfeW09hFCyuRKuLN-uPy82znQktGmOdZx26HgLcR3dqldjpC2WdPhhM9tX0TUShsVN6_v1tmAWvyCPetiDQT7B-f51rgCvdIqLEVojJTb0jAnLyTH4-s2Z4vFNXzOkcGs025WY"/>
 </div>
-<h5 class="text-sm font-semibold">Gold Petal Studs</h5>
+<h5 class="text-sm font-semibold">Broqueles Pétalo de Oro</h5>
 </div>
 <div class="group">
 <div class="aspect-[1/1] bg-surface-container mb-4 overflow-hidden">
 <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCzuKkiuQZuqzYxqxrVj2WAYe3W0t9MV122eRcGyWtg_uRUSzxtyLlvfboNJEBn8QsS0EAgrnRZ0iNcM5jXAl_SvCNdWyf_tjN8gEUFkS2Yn6iHcd2BJ-jLUZFHph7wxemPkQARMZFrGvsXS49Ca-9JBRCH6VFd_3jSMAgDvbFm8DUdBhIyQFY9HcWI4CwlbmaImqlZAq-gf0voeRasNkyncDgKZFv3hKVy-7hNjlmyQbS2A2yv_B4s9mYf53JqVqepgzP5gfthoik"/>
 </div>
-<h5 class="text-sm font-semibold">Midnight Sapphire</h5>
+<h5 class="text-sm font-semibold">Zafiro de Medianoche</h5>
 </div>
 <div class="group">
 <div class="aspect-[1/1] bg-surface-container mb-4 overflow-hidden">
 <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLDTRbmqmrrsMQVc00kWkk8wM2tUxA6uTxAykxL0g3ub2EYWc2GMO49WlOYHikUsH45-V33ax7GHzQQ3NHJaZszgyomHBhztcRbmDPdgYgTiXLxqzpYsaxseGMQ85kfVJJ_EhvpJKqAlKUKe3JBtnyxRiA1t3coFi_n0IJKoLZj7HoS4K3__74mLPgctJ8zcl6gZtEsMgdedQJgeSh8utpKY3zvw5Z2uE7Skg60lID_vJA04QGEaGbJ7_LIG_G91aIfFyrAhRm1O4"/>
 </div>
-<h5 class="text-sm font-semibold">The Editorial Watch</h5>
+<h5 class="text-sm font-semibold">Reloj Editorial</h5>
 </div>
 </div>
 </div>
