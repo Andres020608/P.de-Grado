@@ -34,7 +34,7 @@ new #[Layout('layouts.guest')] class extends Component
 
         Auth::login($user);
 
-        $this->redirect(route('inicio', absolute: false), navigate: true);
+        $this->redirect(route('inicio', absolute: false));
     }
 }; ?>
 
@@ -110,9 +110,10 @@ new #[Layout('layouts.guest')] class extends Component
                     <x-input-error :messages="$errors->get('role')" class="mt-2 text-xs text-[#ba1a1a]" />
                 </div>
 
-                <button type="submit" class="w-full bg-[#003229] hover:bg-[#00503f] text-white py-4 font-semibold text-xs uppercase tracking-[0.2em] rounded-lg transition-all flex items-center justify-center gap-2">
-                    Registrarse
-                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                <button type="submit" wire:loading.attr="disabled" class="w-full bg-[#003229] hover:bg-[#00503f] disabled:opacity-50 text-white py-4 font-semibold text-xs uppercase tracking-[0.2em] rounded-lg transition-all flex items-center justify-center gap-2">
+                    <span wire:loading.remove>Crear Cuenta</span>
+                    <span wire:loading>Procesando...</span>
+                    <span wire:loading.remove class="material-symbols-outlined text-sm">arrow_forward</span>
                 </button>
             </form>
         </div>
