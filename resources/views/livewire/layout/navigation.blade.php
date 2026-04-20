@@ -33,7 +33,7 @@ new class extends Component
                     @auth
                         @if (auth()->user()->isAdmin())
                             <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                                {{ __('Dashboard') }}
+                                {{ __('Panel de Control') }}
                             </x-nav-link>
                             <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')" wire:navigate>
                                 {{ __('Usuarios') }}
@@ -99,7 +99,7 @@ new class extends Component
             @auth
                 @if (auth()->user()->isAdmin())
                     <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')" wire:navigate>
-                        {{ __('Dashboard') }}
+                        {{ __('Panel de Control') }}
                     </x-responsive-nav-link>
                     <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.*')" wire:navigate>
                         {{ __('Usuarios') }}

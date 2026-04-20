@@ -103,7 +103,37 @@
             <div>
                 <label for="image" class="block text-sm font-medium text-gray-700">Imagen</label>
                 <input type="file" name="image" id="image" accept="image/*"
+                       onchange="previewImage(event)"
                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
+                
+                <div id="image-preview-container" class="mt-2 w-[50px] h-[50px] border-2 border-dashed border-gray-300 rounded flex items-center justify-center bg-gray-50 overflow-hidden">
+                    <img id="image-preview" src="#" alt="Vista previa" class="hidden w-full h-full object-cover">
+                    <span id="placeholder-text" class="text-gray-400 text-[10px]">50x50</span>
+                </div>
+
+                <script>
+                    function previewImage(event) {
+                        const reader = new FileReader();
+                        const file = event.target.files[0];
+                        
+                        reader.onload = function() {
+                            const output = document.getElementById('image-preview');
+                            const placeholder = document.getElementById('placeholder-text');
+                            const container = document.getElementById('image-preview-container');
+                            
+                            output.src = reader.result;
+                            output.classList.remove('hidden');
+                            placeholder.classList.add('hidden');
+                            container.classList.remove('border-dashed');
+                            container.classList.add('border-solid');
+                        }
+                        
+                        if (file) {
+                            reader.readAsDataURL(file);
+                        }
+                    }
+                </script>
+
                 @error('image')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror

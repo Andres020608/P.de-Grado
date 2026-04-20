@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center w-full px-8 py-4">
         <div class="flex items-center gap-8">
             <a href="{{ route('dashboard') }}" class="text-2xl font-bold font-noto-serif text-emerald-900 dark:text-emerald-50 hover:opacity-80 transition">
-                The Imperial Editorial
+                Jessica Joyería
             </a>
         </div>
         <div class="flex items-center space-x-6">

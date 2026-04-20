@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Registrar Venta | The Imperial Editorial</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "primary-fixed-dim": "#95d3c1",
+                "primary-fixed": "#b0efdd",
+                "tertiary-fixed": "#ffe089",
+                "surface-container": "#f0eee9",
+                "on-primary": "#ffffff",
+                "error-container": "#ffdad6",
+                "on-tertiary-fixed-variant": "#574400",
+                "on-background": "#1b1c19",
+                "outline": "#707975",
+                "tertiary-fixed-dim": "#e3c46b",
+                "surface-dim": "#dbdad5",
+                "surface-container-low": "#f5f3ee",
+                "background": "#fbf9f4",
+                "tertiary-container": "#c5a853",
+                "on-primary-fixed-variant": "#0a5043",
+                "on-error-container": "#93000a",
+                "outline-variant": "#bfc9c4",
+                "secondary-container": "#fed65b",
+                "tertiary": "#735c0a",
+                "surface-container-high": "#eae8e3",
+                "inverse-primary": "#95d3c1",
+                "on-tertiary-fixed": "#241a00",
+                "surface-container-highest": "#e4e2dd",
+                "on-surface-variant": "#404945",
+                "surface-tint": "#2b695a",
+                "on-tertiary": "#ffffff",
+                "on-primary-container": "#7dbaa9",
+                "secondary-fixed-dim": "#e9c349",
+                "secondary-fixed": "#ffe088",
+                "secondary": "#735c00",
+                "on-tertiary-container": "#4f3d00",
+                "surface-bright": "#fbf9f4",
+                "primary": "#003229",
+                "on-primary-fixed": "#00201a",
+                "surface-variant": "#e4e2dd",
+                "inverse-surface": "#30312e",
+                "on-secondary": "#ffffff",
+                "on-error": "#ffffff",
+                "on-surface": "#1b1c19",
+                "on-secondary-fixed": "#241a00",
+                "inverse-on-surface": "#f2f1ec",
+                "error": "#ba1a1a",
+                "primary-container": "#004b3e",
+                "surface": "#fbf9f4",
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-fixed-variant": "#574500",
+                "on-secondary-container": "#745c00"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "fontFamily": {
+                "headline": ["Noto Serif"],
+                "body": ["Manrope"],
+                "label": ["Manrope"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            font-size: 20px;
+        }
+        body { font-family: 'Manrope', sans-serif; }
+        h1, h2, h3 { font-family: 'Noto Serif', serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+    </style>
+</head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar (Authority Source: JSON) -->
+<aside class="h-screen w-64 fixed left-0 top-0 bg-[#f5f3ee] dark:bg-[#002820] flex flex-col p-6 z-40">
+<div class="mb-12">
+<h2 class="font-serif text-xl text-[#003229] dark:text-[#fbf9f4] tracking-tight">Imperial Admin</h2>
+<p class="font-sans text-xs tracking-wide uppercase opacity-60 text-[#003229] dark:text-[#fbf9f4] mt-1">Gestión de Inventario</p>
+</div>
+<nav class="flex-1 space-y-2 overflow-y-auto no-scrollbar">
+<!-- Dashboard -->
+<a class="flex items-center gap-3 px-4 py-3 text-[#003229]/60 dark:text-[#fbf9f4]/60 font-sans text-sm tracking-wide uppercase hover:bg-[#735c00]/10 transition-all ease-in-out duration-200" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span>Tablero</span>
+</a>
+<!-- Inventory -->
+<a class="flex items-center gap-3 px-4 py-3 text-[#003229]/60 dark:text-[#fbf9f4]/60 font-sans text-sm tracking-wide uppercase hover:bg-[#735c00]/10 transition-all ease-in-out duration-200" href="#">
+<span class="material-symbols-outlined">diamond</span>
+<span>Inventario</span>
+</a>
+<!-- Orders -->
+<a class="flex items-center gap-3 px-4 py-3 text-[#003229]/60 dark:text-[#fbf9f4]/60 font-sans text-sm tracking-wide uppercase hover:bg-[#735c00]/10 transition-all ease-in-out duration-200" href="#">
+<span class="material-symbols-outlined">shopping_bag</span>
+<span>Pedidos</span>
+</a>
+<!-- Customers -->
+<a class="flex items-center gap-3 px-4 py-3 text-[#003229]/60 dark:text-[#fbf9f4]/60 font-sans text-sm tracking-wide uppercase hover:bg-[#735c00]/10 transition-all ease-in-out duration-200" href="#">
+<span class="material-symbols-outlined">group</span>
+<span>Clientes</span>
+</a>
+<!-- Transactions (ACTIVE) -->
+<a class="flex items-center gap-3 px-4 py-3 bg-[#003229] text-[#fbf9f4] rounded-sm font-sans text-sm tracking-wide uppercase transition-all ease-in-out duration-200" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">receipt_long</span>
+<span>Transacciones</span>
+</a>
+<!-- Settings -->
+<a class="flex items-center gap-3 px-4 py-3 text-[#003229]/60 dark:text-[#fbf9f4]/60 font-sans text-sm tracking-wide uppercase hover:bg-[#735c00]/10 transition-all ease-in-out duration-200" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span>Ajustes</span>
+</a>
+</nav>
+<div class="pt-6 mt-6 border-t border-[#003229]/5">
+<div class="flex items-center gap-3 px-2 mb-8">
+<div class="w-10 h-10 rounded-full bg-surface-container-high overflow-hidden">
+<img alt="Avatar de Administrador" class="w-full h-full object-cover grayscale" data-alt="Professional headshot of a boutique manager with soft lighting and neutral background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsSGLTs0pNlcMpx9Ppz4-jRdZl8pXqohzZnRJ8t-uKOoUKdTZwYQSQOoqvMUi1jkEP_lcI1ROvk9cw-aB3MWSTDociCjRdy1b_gSxoMZ1KqOjwwmC8LjfrT-yktSSyGWjnVcbQAXQD20wDWd1rjBJpWYABFdalaOgh8oRcv2525vCmB6iGHvMxz532VmOwrQz3_dGFRHFDm83kNLZ67H-JRxwZzt-a2NBYkDDXH15qi0vEIBlKqlmJfLrJRoFkda6qorjxZPCmmRY"/>
+</div>
+<div>
+<p class="text-sm font-semibold text-[#003229]">Julian Thorne</p>
+<p class="text-[10px] uppercase tracking-widest opacity-50">Curador Jefe</p>
+</div>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="ml-64 flex-1 min-h-screen bg-background">
+<div class="max-w-6xl mx-auto px-12 py-16">
+<!-- Header Section -->
+<header class="mb-16">
+<nav class="mb-8 flex items-center gap-2 text-on-surface-variant font-label text-[10px] tracking-widest uppercase">
+<a class="hover:text-primary transition-colors" href="#">Admin</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<a class="hover:text-primary transition-colors" href="#">Transacciones</a>
+<span class="material-symbols-outlined text-[12px]">chevron_right</span>
+<span class="text-primary font-bold">Nueva Venta</span>
+</nav>
+<h1 class="text-6xl font-headline font-bold text-primary tracking-tighter">Registrar Venta</h1>
+<p class="text-on-surface-variant mt-4 font-body text-lg max-w-2xl leading-relaxed">
+                    Registre una adquisición privada en el archivo Imperial. Asegúrese de que todos los detalles de la tasación coincidan con el certificado físico.
+                </p>
+</header>
+<form class="grid grid-cols-12 gap-x-12 gap-y-20">
+<!-- Left Column: Form Fields -->
+<div class="col-span-12 lg:col-span-7 space-y-16">
+<!-- Section: Identity -->
+<section>
+<h3 class="text-xs font-label uppercase tracking-[0.3em] text-secondary mb-10 pb-2 border-b border-outline-variant/20">I. Identidad del Cliente</h3>
+<div class="space-y-10">
+<div class="relative">
+<label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2">Nombre Legal Completo</label>
+<input class="w-full bg-transparent border-none border-b border-outline-variant focus:ring-0 focus:border-secondary py-3 px-0 font-headline text-xl transition-all placeholder:text-outline-variant/40" placeholder="ej. Alistair Vance" type="text"/>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="relative">
+<label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2">Correo Electrónico</label>
+<input class="w-full bg-transparent border-none border-b border-outline-variant focus:ring-0 focus:border-secondary py-3 px-0 font-body text-base transition-all" placeholder="cliente@imperial.com" type="email"/>
+</div>
+<div class="relative">
+<label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2">Teléfono de Contacto</label>
+<input class="w-full bg-transparent border-none border-b border-outline-variant focus:ring-0 focus:border-secondary py-3 px-0 font-body text-base transition-all" placeholder="+34 000 000 000" type="tel"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Item Selection -->
+<section>
+<h3 class="text-xs font-label uppercase tracking-[0.3em] text-secondary mb-10 pb-2 border-b border-outline-variant/20">II. Selección de Artículo</h3>
+<div class="relative group">
+<label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-4">Búsqueda en Inventario</label>
+<div class="flex items-center border-b border-outline-variant focus-within:border-secondary transition-colors py-2">
+<span class="material-symbols-outlined text-outline mr-3">search</span>
+<input class="w-full bg-transparent border-none focus:ring-0 py-2 px-0 font-headline text-lg" placeholder="Buscar por SKU o nombre..." type="text"/>
+</div>
+</div>
+<!-- Mini Selection Grid -->
+<div class="mt-8 grid grid-cols-2 gap-4">
+<div class="p-4 bg-surface-container-low border border-transparent hover:border-secondary transition-all cursor-pointer flex gap-4 items-center group">
+<div class="w-16 h-16 bg-white overflow-hidden rounded-sm flex-shrink-0 grayscale group-hover:grayscale-0 transition-all">
+<img alt="Anillo de Esmeralda" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCEmTKZCsyfZKa2rq930vEGBQwI2U1FPLleJiMcfvnpg3K0OBu1gEuOBo0w3Z_kil1ejehVyE57jBM-jgcfviej-BUyXFQs0uyrwyS7mDW6kAX6JpXrXUZt0EKadDLy8vfMjXQyDB_2HYu7mlwUxRLRYFimdV1hWZL8EhzjUPC5qTrl1ul5znSX5llLftq8JNFfHdEqNE9uTP7uxNiWkn4yEYPerlvhqcyamRhDkPLj2H92KmQCqtsktCDuDW0r6TwqVQE5in6JpVs"/>
+</div>
+<div>
+<p class="text-sm font-headline font-bold">El Solitario Verdante</p>
+<p class="text-[10px] font-label uppercase opacity-50">SKU: IV-9920</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container border border-secondary flex gap-4 items-center relative">
+<div class="absolute top-2 right-2">
+<span class="material-symbols-outlined text-secondary" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div class="w-16 h-16 bg-white overflow-hidden rounded-sm flex-shrink-0">
+<img alt="Collar de Oro" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAv29HZW-MIz_sLAoKB06S0OpP5Q5f_s8smxsF1NwA9FFFfVlEpTq8MVKSB7bktLG4V-zN0GRMLEfpFa9s5NrWbm6J4OiCbAmmPxGyHN_4CZC7H1mwAaGaiDBZ-9BWPw-aCMIRNVJGwtaG67t6Fdq5WRFe9nIUqLqyyF71MbNbaIffYmqPWrwH9w5DgJlJieqrTXmLwYrCviw-ksdAY34wEr8nbAwG5ZhOIPd_Gh2e0g9JxJ7044CWP2BIP9dp7lJs7XGkEkCc_RWU"/>
+</div>
+<div>
+<p class="text-sm font-headline font-bold">Aurelian Link No. 4</p>
+<p class="text-[10px] font-label uppercase text-secondary">Seleccionado</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Section: Transaction Specifics -->
+<section>
+<h3 class="text-xs font-label uppercase tracking-[0.3em] text-secondary mb-10 pb-2 border-b border-outline-variant/20">III. Detalles de Transacción</h3>
+<div class="grid grid-cols-3 gap-8">
+<div class="relative">
+<label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2">Precio de Venta ($)</label>
+<input class="w-full bg-transparent border-none border-b border-outline-variant focus:ring-0 focus:border-secondary py-3 px-0 font-headline text-2xl transition-all" type="number" value="12400"/>
+<span class="text-[10px] text-on-surface-variant/60 mt-2 block">Tasación: $11.800,00</span>
+</div>
+<div class="relative">
+<label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2">Cantidad</label>
+<input class="w-full bg-transparent border-none border-b border-outline-variant focus:ring-0 focus:border-secondary py-3 px-0 font-headline text-2xl transition-all" type="number" value="1"/>
+</div>
+<div class="relative">
+<label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2">Fecha de Adquisición</label>
+<input class="w-full bg-transparent border-none border-b border-outline-variant focus:ring-0 focus:border-secondary py-3 px-0 font-body text-base transition-all" type="date" value="2024-05-24"/>
+</div>
+</div>
+</section>
+<!-- Section: Notes -->
+<section>
+<h3 class="text-xs font-label uppercase tracking-[0.3em] text-secondary mb-10 pb-2 border-b border-outline-variant/20">IV. Notas Editoriales</h3>
+<textarea class="w-full bg-surface-container-low border-none border-b border-outline-variant focus:ring-0 focus:border-secondary p-4 font-body text-base transition-all italic placeholder:not-italic" placeholder="Registre ajustes de tamaño, inscripciones personalizadas o solicitudes de entrega específicas..." rows="4"></textarea>
+</section>
+</div>
+<!-- Right Column: Summary -->
+<div class="col-span-12 lg:col-span-5">
+<div class="sticky top-24 space-y-8">
+<!-- Summary Card -->
+<div class="bg-primary text-on-primary p-10 rounded-sm shadow-2xl relative overflow-hidden">
+<!-- Background Texture -->
+<div class="absolute inset-0 opacity-10 pointer-events-none mix-blend-overlay" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBLRQWE2Z-ibZZ-sPXqtb7oXihpUDdI2UCUtTDskLuwl7dIpQ776Q91bfarn0DpZnfBkU7X2xb8EGtyYM4kMr3aCKZYMbR9T1bS-X9T9mmXkBO21mrPAcEbjdtetdsbPYjMWIXszj4aMJ3WWCKFmEmzPVBsN30sgzAjchcDy2zuL3C7mVGuOXA9iTp0vZblkso9-bVcNIu3cEt4nMcQbfmXTJlDO5Cl5w7ZsHZd40u_mjGUzQmAmfmDa8w5bdw_NVfFpP0k_pLy00o');"></div>
+<h4 class="text-xs font-label uppercase tracking-[0.4em] mb-12 opacity-60">Resumen de Adquisición</h4>
+<div class="space-y-6">
+<div class="flex justify-between items-end border-b border-white/10 pb-4">
+<div>
+<p class="text-[10px] uppercase tracking-widest opacity-50 mb-1">SKU del Artículo</p>
+<p class="font-headline text-lg">Aurelian Link No. 4</p>
+</div>
+<p class="font-headline text-lg">$12.400,00</p>
+</div>
+<div class="flex justify-between items-end border-b border-white/10 pb-4">
+<p class="text-[10px] uppercase tracking-widest opacity-50">Impuesto de Bóveda (Inc.)</p>
+<p class="font-body text-sm font-light">$1.054,00</p>
+</div>
+<div class="flex justify-between items-end pt-4">
+<p class="text-xs uppercase tracking-[0.2em] font-bold">Inversión Total</p>
+<p class="font-headline text-4xl font-bold text-secondary-fixed">$13.454,00</p>
+</div>
+</div>
+</div><button class="w-full py-6 bg-secondary text-on-primary font-label text-sm uppercase tracking-[0.3em] font-bold hover:opacity-90 transition-all flex items-center justify-center gap-4" type="submit">Registrar Venta</button><button class="w-full py-6 bg-primary text-on-primary font-label text-sm uppercase tracking-[0.3em] font-bold hover:bg-primary-container transition-all flex items-center justify-center gap-4 mt-8" type="submit">
+<span class="material-symbols-outlined">download</span>
+                                Descargar PDF
+                            </button>
+<!-- Actions -->
+<div class="">
+<div class="grid gap-4 grid-cols-1 mt-4">
+<button class="py-4 border border-outline-variant/30 text-error font-label text-[10px] uppercase tracking-[0.2em] hover:bg-error-container/10 transition-all" type="button">
+                                    Cancelar
+                                </button>
+</div>
+</div>
+<!-- Audit Info -->
+<div class="p-6 bg-surface-container-low border border-outline-variant/10">
+<div class="flex gap-4 items-start">
+<span class="material-symbols-outlined text-secondary">info</span>
+<div>
+<p class="text-[10px] font-label uppercase tracking-widest text-on-surface-variant leading-relaxed">
+                                        Esta transacción se registrará con la marca de tiempo <span class="font-bold text-primary">2024.05.24 14:32:01 UTC</span> y se atribuirá a <span class="font-bold text-primary">J. Thorne</span>.
+                                    </p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</form>
+</div>
+<!-- Footer (Authority Source: JSON) -->
+<footer class="w-full mt-24 bg-[#fbf9f4] dark:bg-[#003229] border-t border-[#003229]/5">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 px-12 py-16">
+<div>
+<h2 class="font-serif text-lg font-bold text-primary">The Imperial Editorial</h2>
+<p class="mt-4 font-sans text-xs tracking-[0.1em] uppercase opacity-70">
+                        © 2024 The Imperial Editorial. Todos los derechos reservados.
+                    </p>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="font-sans text-xs tracking-[0.1em] uppercase font-bold text-secondary mb-2">Conserjería</h3>
+<a class="font-sans text-xs tracking-[0.1em] uppercase text-[#003229]/70 hover:text-[#735c00] underline decoration-1 transition-opacity" href="#">Correo</a>
+<a class="font-sans text-xs tracking-[0.1em] uppercase text-[#003229]/70 hover:text-[#735c00] underline decoration-1 transition-opacity" href="#">Teléfono</a>
+<a class="font-sans text-xs tracking-[0.1em] uppercase text-[#003229]/70 hover:text-[#735c00] underline decoration-1 transition-opacity" href="#">Dirección</a>
+</div>
+<div class="flex flex-col gap-3">
+<h3 class="font-sans text-xs tracking-[0.1em] uppercase font-bold text-secondary mb-2">Social</h3>
+<a class="font-sans text-xs tracking-[0.1em] uppercase text-[#003229]/70 hover:text-[#735c00] underline decoration-1 transition-opacity" href="#">Instagram</a>
+<a class="font-sans text-xs tracking-[0.1em] uppercase text-[#003229]/70 hover:text-[#735c00] underline decoration-1 transition-opacity" href="#">Pinterest</a>
+</div>
+</div>
+</footer>
+</main>
+</body></html>

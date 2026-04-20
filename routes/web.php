@@ -58,6 +58,19 @@ Route::middleware(['auth'])->group(function () {
                 'update' => 'admin.products.update',
                 'destroy' => 'admin.products.destroy',
             ]);
+
+            // Ventas
+            Route::get('sales', function () {
+                return view('admin.sales.index');
+            })->name('admin.sales.index');
+            Route::get('sales/create', function () {
+                return view('admin.sales.create');
+            })->name('admin.sales.create');
+            Route::get('sales/export', [App\Http\Controllers\Admin\ReportController::class, 'exportExcel'])->name('admin.sales.export');
+            Route::get('sales/{sale}/invoice', [App\Http\Controllers\Admin\ReportController::class, 'downloadInvoice'])->name('admin.sales.invoice');
+
+            // Reportes
+            Route::get('reports', [App\Http\Controllers\Admin\ReportController::class, 'index'])->name('admin.reports.index');
         });
     });
 });

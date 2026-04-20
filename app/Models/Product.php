@@ -38,8 +38,8 @@ class Product extends Model
         return $this->belongsTo(Supplier::class);
     }
 
-    public function getImageUrlAttribute(): string
+    public function getImageUrlAttribute(): ?string
     {
-        return $this->image ? asset('storage/images/'.$this->image) : null;
+        return $this->image ? asset('storage/'.$this->image) : null;
     }
 }

@@ -104,10 +104,43 @@
             <div>
                 <label for="image" class="block text-sm font-medium text-gray-700">Imagen</label>
                 <input type="file" name="image" id="image" accept="image/*"
+                       onchange="previewImage(event)"
                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
-                @if($product->image)
-                    <p class="mt-1 text-sm text-gray-600">Imagen actual: <img src="{{ $product->image_url }}" alt="Imagen actual" class="w-20 h-20 object-cover"></p>
-                @endif
+
+                <div class="mt-2">
+                    <p class="text-sm text-gray-600 mb-1">Imagen actual / Vista previa:</p>
+                    <div id="image-preview-container" class="w-[100px] h-[100px] border border-gray-300 rounded overflow-hidden bg-gray-50 flex items-center justify-center p-1.5">
+                         @if($product->image)
+                            <img id="image-preview" src="{{ $product->image_url }}" alt="Imagen actual" class="w-full h-full object-cover rounded-sm">
+                        @else
+                            <img id="image-preview" src="#" alt="Vista previa" class="hidden w-full h-full object-cover rounded-sm">
+                            <span id="placeholder-text" class="text-gray-400 text-xs">Sin imagen</span>
+                        @endif
+                    </div>
+                </div>
+
+                <script>
+                    function previewImage(event) {
+                        const reader = new FileReader();
+                        const file = event.target.files[0];
+                        
+                        reader.onload = function() {
+                            const output = document.getElementById('image-preview');
+                            const placeholder = document.getElementById('placeholder-text');
+                            
+                            output.src = reader.result;
+                            output.classList.remove('hidden');
+                            if (placeholder) {
+                                placeholder.classList.add('hidden');
+                            }
+                        }
+                        
+                        if (file) {
+                            reader.readAsDataURL(file);
+                        }
+                    }
+                </script>
+
                 @error('image')
                     <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
                 @enderror
