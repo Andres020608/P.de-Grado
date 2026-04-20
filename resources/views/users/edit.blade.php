@@ -5,14 +5,14 @@
                 <h2 class="font-semibold text-xl text-gray-800 leading-tight">Editar usuario</h2>
                 <p class="text-sm text-gray-500">Actualiza información de usuario y rol.</p>
             </div>
-            <a href="{{ route('users.index') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900">Volver</a>
+            <a href="{{ route('admin.users.index') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-900">Volver</a>
         </div>
     </x-slot>
 
     <div class="py-12">
         <div class="max-w-3xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white shadow-sm sm:rounded-lg p-6">
-                <form action="{{ route('users.update', $user) }}" method="POST">
+                <form action="{{ route('admin.users.update', $user) }}" method="POST">
                     @csrf
                     @method('PUT')
 

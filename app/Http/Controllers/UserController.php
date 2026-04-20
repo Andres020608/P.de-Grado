@@ -32,7 +32,7 @@ class UserController extends Controller
     {
         User::create($request->validated());
 
-        return redirect()->route('users.index')->with('success', 'Usuario creado correctamente.');
+        return redirect()->route('admin.users.index')->with('success', 'Usuario creado correctamente.');
     }
 
     public function edit(User $user): View
@@ -50,13 +50,13 @@ class UserController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente.');
+        return redirect()->route('admin.users.index')->with('success', 'Usuario actualizado correctamente.');
     }
 
     public function destroy(User $user): RedirectResponse
     {
         $user->delete();
 
-        return redirect()->route('users.index')->with('success', 'Usuario eliminado correctamente.');
+        return redirect()->route('admin.users.index')->with('success', 'Usuario eliminado correctamente.');
     }
 }

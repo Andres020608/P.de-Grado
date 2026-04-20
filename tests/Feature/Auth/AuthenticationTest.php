@@ -66,7 +66,7 @@ class AuthenticationTest extends TestCase
 
         $response
             ->assertOk()
-            ->assertSeeVolt('layout.navigation');
+            ->assertSee('Bienvenido'); // Check for greeting in the new dashboard
     }
 
     public function test_users_can_logout(): void

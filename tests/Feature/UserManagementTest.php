@@ -14,7 +14,7 @@ class UserManagementTest extends TestCase
     {
         $admin = User::factory()->create(['role' => User::ROLE_ADMIN]);
 
-        $response = $this->actingAs($admin)->get('/users');
+        $response = $this->actingAs($admin)->get('/admin/users');
 
         $response->assertOk();
         $response->assertSee('Usuarios');
@@ -24,7 +24,7 @@ class UserManagementTest extends TestCase
     {
         $admin = User::factory()->create(['role' => User::ROLE_ADMIN]);
 
-        $response = $this->actingAs($admin)->post('/users', [
+        $response = $this->actingAs($admin)->post('/admin/users', [
             'name' => 'New Client',
             'email' => 'client@example.com',
             'password' => 'password',
@@ -32,7 +32,7 @@ class UserManagementTest extends TestCase
             'role' => User::ROLE_CLIENT,
         ]);
 
-        $response->assertRedirect('/users');
+        $response->assertRedirect('/admin/users');
         $this->assertDatabaseHas('users', [
             'email' => 'client@example.com',
             'role' => User::ROLE_CLIENT,
@@ -44,7 +44,7 @@ class UserManagementTest extends TestCase
         $admin = User::factory()->create(['role' => User::ROLE_ADMIN]);
         $user = User::factory()->create(['role' => User::ROLE_CLIENT]);
 
-        $response = $this->actingAs($admin)->put("/users/{$user->id}", [
+        $response = $this->actingAs($admin)->put("/admin/users/{$user->id}", [
             'name' => 'Updated Name',
             'email' => $user->email,
             'password' => '',
@@ -52,7 +52,7 @@ class UserManagementTest extends TestCase
             'role' => User::ROLE_ADMIN,
         ]);
 
-        $response->assertRedirect('/users');
+        $response->assertRedirect('/admin/users');
         $this->assertDatabaseHas('users', [
             'id' => $user->id,
             'name' => 'Updated Name',
@@ -65,9 +65,9 @@ class UserManagementTest extends TestCase
         $admin = User::factory()->create(['role' => User::ROLE_ADMIN]);
         $user = User::factory()->create(['role' => User::ROLE_CLIENT]);
 
-        $response = $this->actingAs($admin)->delete("/users/{$user->id}");
+        $response = $this->actingAs($admin)->delete("/admin/users/{$user->id}");
 
-        $response->assertRedirect('/users');
+        $response->assertRedirect('/admin/users');
         $this->assertDatabaseMissing('users', ['id' => $user->id]);
     }
 
@@ -77,7 +77,7 @@ class UserManagementTest extends TestCase
 
         $this->actingAs($client);
 
-        $this->get('/users')->assertForbidden();
+        $this->get('/admin/users')->assertForbidden();
         $this->get('/dashboard')->assertForbidden();
     }
 

@@ -26,9 +26,16 @@ Route::middleware(['auth'])->group(function () {
         ->name('dashboard');
 
     Route::middleware(EnsureUserIsAdmin::class)->group(function () {
-        Route::resource('users', UserController::class)->except(['show']);
-
         Route::prefix('admin')->group(function () {
+            Route::resource('users', UserController::class)->except(['show'])->names([
+                'index' => 'admin.users.index',
+                'create' => 'admin.users.create',
+                'store' => 'admin.users.store',
+                'edit' => 'admin.users.edit',
+                'update' => 'admin.users.update',
+                'destroy' => 'admin.users.destroy',
+            ]);
+
             Route::resource('categories', CategoryController::class)->names([
                 'index' => 'admin.categories.index',
                 'create' => 'admin.categories.create',
