@@ -21,11 +21,7 @@ new #[Layout('layouts.guest')] class extends Component
 
         Session::regenerate();
 
-        $redirectRoute = Auth::user()->isAdmin()
-            ? route('dashboard')
-            : route('inicio');
-
-        $this->redirect($redirectRoute);
+        $this->redirect(route('inicio', absolute: false), navigate: true);
     }
 }; ?>
 

@@ -21,9 +21,9 @@ Route::middleware(['auth'])->group(function () {
     Route::view('profile', 'profile')
         ->name('profile');
 
-    Route::get('dashboard', function () {
-        return view('dashboard');
-    })->middleware(EnsureUserIsAdmin::class)->name('dashboard');
+    Route::get('dashboard', [App\Http\Controllers\Admin\DashboardController::class, 'index'])
+        ->middleware(EnsureUserIsAdmin::class)
+        ->name('dashboard');
 
     Route::middleware(EnsureUserIsAdmin::class)->group(function () {
         Route::resource('users', UserController::class)->except(['show']);
@@ -66,6 +66,16 @@ Route::middleware(['auth'])->group(function () {
             Route::get('sales/create', function () {
                 return view('admin.sales.create');
             })->name('admin.sales.create');
+            Route::get('sales/{sale}', function (App\Models\Sale $sale) {
+                return view('admin.sales.show', compact('sale'));
+            })->name('admin.sales.show');
+            Route::put('sales/{sale}/status', function (Illuminate\Http\Request $request, App\Models\Sale $sale) {
+                $validated = $request->validate([
+                    'status' => 'required|string|in:completado,pendiente,cancelado',
+                ]);
+                $sale->update($validated);
+                return back()->with('success', 'Estado de la venta actualizado correctamente.');
+            })->name('admin.sales.update-status');
             Route::get('sales/export', [App\Http\Controllers\Admin\ReportController::class, 'exportExcel'])->name('admin.sales.export');
             Route::get('sales/{sale}/invoice', [App\Http\Controllers\Admin\ReportController::class, 'downloadInvoice'])->name('admin.sales.invoice');
 

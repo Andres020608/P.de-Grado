@@ -9,7 +9,7 @@
 <div class="hidden md:flex space-x-8">
 <a class="font-serif text-lg tracking-tight text-[#735c00] border-b-2 border-[#735c00] pb-1 hover:text-[#735c00] transition-colors duration-300" href="#">Home</a>
 <a class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300" href="#">Collection</a>
-<a class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300" href="#">About</a>
+<a class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300" href="#herencia">About</a>
 </div>
 </div>
 <div class="flex items-center space-x-6">
@@ -170,7 +170,7 @@
 </div>
 </section>
 <!-- Our Story Section -->
-<section class="bg-surface-container-low py-32 px-8 overflow-hidden">
+<section id="herencia" class="bg-surface-container-low py-32 px-8 overflow-hidden">
 <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
 <div class="md:col-span-6 relative">
 <div class="aspect-[3/4] overflow-hidden rounded-sm">

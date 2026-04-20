@@ -130,10 +130,16 @@ new class extends Component {
                         <td class="py-8 px-4 text-right font-body text-sm text-stone-600">{{ $sale->items->sum('quantity') }}</td>
                         <td class="py-8 px-4 text-right font-serif text-primary font-bold">${{ number_format($sale->total_amount, 2) }}</td>
                         <td class="py-8 px-4 text-center">
-                            <a href="{{ route('admin.sales.invoice', $sale) }}" class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container text-primary text-[10px] font-bold uppercase tracking-widest rounded-sm hover:bg-primary hover:text-on-primary transition-all">
-                                <span class="material-symbols-outlined text-sm">download</span>
-                                Factura
-                            </a>
+                            <div class="flex items-center justify-center gap-2">
+                                <a href="{{ route('admin.sales.show', $sale) }}" class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container text-secondary text-[10px] font-bold uppercase tracking-widest rounded-sm hover:bg-secondary hover:text-on-secondary transition-all" title="Ver Detalles">
+                                    <span class="material-symbols-outlined text-sm">visibility</span>
+                                    Ver
+                                </a>
+                                <a href="{{ route('admin.sales.invoice', $sale) }}" class="inline-flex items-center gap-2 px-3 py-1 bg-surface-container text-primary text-[10px] font-bold uppercase tracking-widest rounded-sm hover:bg-primary hover:text-on-primary transition-all" title="Descargar Factura">
+                                    <span class="material-symbols-outlined text-sm">download</span>
+                                    Factura
+                                </a>
+                            </div>
                         </td>
                     </tr>
                 @empty

@@ -1,62 +1,51 @@
-<<<<<<< HEAD
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Jessica Joyería - The Imperial Editorial
+### Professional Management System for High-End Jewelry
 
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuBOvGBBOCGNcer62il7rt7v-iOYgu5W8JqAW-Cgw3O9A-qn8n3ssMwblrd7EeSmbmqMYczt4Kn9bFId_e6AN3txC81NnYbFk-t3zosoQN9WvEEPO8tM5UQKtgrKmGVUPgRS7LK82mUZTMbxNEp98HsnAsatq5-0pwxSHGyMqDqwRou42diYLwCjQWkDanNnuKlZs1fzAutjEW_pNLlFLFh3Kqn_k9G-R7csihpL8ZUDJAMZVl7tgBSNtq7SuEbjIDo_fnTeRR6Ti5U" width="600" alt="Jessica Joyería Hero">
 </p>
 
-## About Laravel
+## 💎 Descripción del Sistema
+**Jessica Joyería** es una plataforma integral diseñada para la gestión de inventarios, ventas y análisis de datos de una joyería de alta gama. Inspirada en la estética "Imperial Editorial", la aplicación combina una interfaz minimalista y sofisticada con herramientas robustas de administración para el mercado de lujo.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+El sistema no solo permite el control transaccional, sino que ofrece una experiencia visual premium que refleja el valor artesanal de las joyas de Cali, Colombia.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## 🚀 Capacidades y Funcionamiento
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 1. Panel Administrativo (Dashboard Editorial)
+*   **Diseño Bento Grid:** Interfaz moderna y organizada que permite visualizar métricas clave de un vistazo sin saturar al usuario.
+*   **Analítica Visual:** Gráficas dinámicas de ventas semanales y distribución de productos más vendidos mediante la integración de **Chart.js**.
+*   **Monitoreo de KPIs:** Seguimiento automático de ventas totales, número de transacciones y valoración total del inventario en tiempo real.
 
-## Learning Laravel
+### 2. Gestión de Inventario Inteligente
+*   **Alertas Proactivas:** Sistema de notificaciones en tiempo real basado en umbrales dinámicos:
+    *   🔴 **Crítico:** Menos de 5 unidades.
+    *   🟡 **Bajo:** Entre 5 y 9 unidades.
+*   **Notificaciones Persistentes:** Centro de alertas en la cabecera (Header) con insignias de conteo y acceso directo a la edición de productos para resolución rápida de stock.
+*   **Control Multimedia:** Gestión avanzada de imágenes para productos y categorías, optimizada para previsualizaciones rápidas.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### 3. Módulo de Ventas y Transacciones
+*   **Registro Atómico:** Proceso de registro de ventas con control de inventario automatizado mediante transacciones de base de datos para asegurar la integridad de los datos.
+*   **Detalle de Transacciones:** Vista profunda de cada venta que incluye datos del cliente, desglose de productos con miniaturas y gestión de estados (**Completado, Pendiente, Cancelado**).
+*   **Reportería:** Generación de facturas profesionales y exportación de reportes de ventas e inventario.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 4. Experiencia de Usuario y Navegación
+*   **Showcase Público:** Una página de inicio elegante diseñada para cautivar al cliente, con secciones dedicadas a la herencia de la marca y colecciones destacadas.
+*   **Flujo de Autenticación:** Sistema de roles (Admin/Cliente) con redireccionamientos inteligentes a la página de inicio para fomentar el descubrimiento de productos.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+## 🛠 Stack Tecnológico
+*   **Framework:** [Laravel 13](https://laravel.com) (PHP 8.5)
+*   **Frontend:** [Livewire Volt](https://livewire.laravel.com/docs/volt) (Single File Components)
+*   **Estilos:** [Tailwind CSS](https://tailwindcss.com) (Tema Editorial Personalizado)
+*   **Gráficas:** [Chart.js](https://www.chartjs.org/)
+*   **Base de Datos:** MySQL
+*   **Bundling:** Vite
 
-## Agentic Development
+## 🎨 Identidad Visual (Design Tokens)
+El sistema utiliza una paleta curada que evoca sofisticación:
+*   **Emerald Deep (#003229):** Representa la autoridad y el color institucional.
+*   **Artisanal Gold (#735c00):** Utilizado para interacciones y detalles de lujo.
+*   **Cream Surface (#fbf9f4):** Proporciona un lienzo limpio que resalta las piezas de joyería.
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
-
-```bash
-composer require laravel/boost --dev
-
-php artisan boost:install
-```
-
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
-=======
-# P.de-Grado
->>>>>>> 8f744247ca36ebca414f6da754a68777e8e2f5da
+---
+*Desarrollado como Proyecto de Grado por Andrés Hurtado, Katherin Cortes y Camilo Fernandez.*

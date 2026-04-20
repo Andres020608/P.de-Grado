@@ -40,10 +40,6 @@
             <span>Reportes</span>
         </a>
 
-        <a href="#" class="flex items-center gap-3 px-4 py-3 text-emerald-800/50 dark:text-emerald-200/40 hover:bg-[#ffffff]/50 dark:hover:bg-emerald-800/20 hover:text-emerald-900 dark:hover:text-emerald-50 font-manrope uppercase tracking-[0.1em] text-xs font-semibold transition-all ease-out duration-200 hover:translate-x-1">
-            <span class="material-symbols-outlined text-lg" data-icon="settings">settings</span>
-            <span>Settings</span>
-        </a>
     </nav>
     <a href="{{ route('admin.products.create') }}" class="mt-auto bg-primary text-on-primary py-3 px-4 rounded-lg font-manrope uppercase tracking-[0.1em] text-xs font-bold hover:opacity-90 transition-opacity text-center">
         New Product

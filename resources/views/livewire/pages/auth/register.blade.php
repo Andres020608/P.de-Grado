@@ -34,11 +34,7 @@ new #[Layout('layouts.guest')] class extends Component
 
         Auth::login($user);
 
-        $redirectRoute = Auth::user()->isAdmin()
-            ? route('dashboard', absolute: false)
-            : route('inicio', absolute: false);
-
-        $this->redirect($redirectRoute, navigate: true);
+        $this->redirect(route('inicio', absolute: false), navigate: true);
     }
 }; ?>
 

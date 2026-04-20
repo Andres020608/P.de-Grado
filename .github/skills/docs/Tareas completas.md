@@ -116,3 +116,68 @@
 
 - Ejecutado `php artisan storage:link`
 - Directorio `storage/app/public/images` disponible para imágenes subidas
+
+---
+
+## MÓDULO DE VENTAS (Novedad)
+
+- **Descripción:** Implementación de registro de ventas y reportes
+- **Archivos Clave:**
+  - `resources/views/livewire/admin/sales/create.blade.php`: Interfaz de registro de ventas con Livewire.
+  - `app/Http/Controllers/Admin/ReportController.php`: Gestión de exportaciones Excel y Facturas PDF.
+  - `app/Models/Sale.php`: Modelo con lógica de transacciones para control de stock.
+
+**Mejoras realizadas:**
+- **Lógica Atómica:** El registro de ventas utiliza transacciones de BD; si falla la resta de stock, no se cobra la venta.
+- **Preparación de Reportes:** Configurada la infraestructura para descarga de facturas y reportes de inventario.
+
+---
+
+## CORRECCIONES DE UI/UX
+
+- **Fix de Imagen Duplicada:** Se eliminó la doble renderización de la imagen en la vista `show.blade.php` de productos.
+- **Normalización de Vistas:** Sincronización de placeholders y vistas previas en `create` y `edit` de productos.
+- **Ajustes de Diseño:** Header y Sidebar administrativo ahora comparten una paleta de colores cohesiva y tipografía Premium.
+
+---
+
+## PANEL ADMINISTRATIVO EDITORIAL (Dashboard v2.0)
+
+- **Ruta:** `/dashboard`
+- **Controlador:** `app/Http/Controllers/Admin/DashboardController.php`
+- **Descripción:** Rediseño total bajo el estilo "Bento Grid" con visualizaciones de datos.
+
+**Mejoras realizadas:**
+- **Métricas en Tiempo Real:** Implementación de tarjetas KPI para Ventas Totales, Valor del Inventario y Producto más vendido.
+- **Integración de Chart.js:** Gráfica de anillo para top de productos y gráfica de barras para ventas semanales.
+- **Sistema de Alertas Inteligentes:** 
+    - Umbral crítico configurado en < 5 unidades (Rojo).
+    - Umbral bajo configurado en <= 9 unidades (Dorado).
+    - Notificaciones persistentes en la campana del Header con acceso directo a edición.
+- **Actividad Reciente:** Tabla interactiva con enlace a detalles de cada venta.
+
+---
+
+## GESTIÓN AVANZADA DE VENTAS
+
+- **Ruta:** `/admin/sales/{sale}`
+- **Vista:** `resources/views/admin/sales/show.blade.php`
+- **Descripción:** Módulo detallado para seguimiento de transacciones.
+
+**Mejoras realizadas:**
+- **Vista de Detalle:** Desglose completo de productos, cantidades, precios unitarios y datos del cliente con estética editorial.
+- **Edición de Estado:** Formulario integrado para cambiar el estado de la venta (Completado, Pendiente, Cancelado) con persistencia inmediata.
+- **Historial de Ventas:** Actualizada la tabla de historial con botones de "Ver Detalle" y descarga de factura.
+
+---
+
+## REFINAMIENTO DE NAVEGACIÓN Y UX
+
+**Cambios realizados:**
+- **Limpieza de UI:** Remoción de secciones innecesarias (Showroom, Settings) y vinculación de botón "Gráficas" a Reportes.
+- **Navegación Intuitiva:** 
+    - El logo de la cabecera ahora redirige a la página de Inicio pública.
+    - El botón "About" de la Home ahora desplaza a la sección "Nuestra Herencia".
+- **Flujo de Autenticación:** Corrección del redireccionamiento para que tanto admins como clientes lleguen a la Página de Inicio tras el login/registro.
+- **Aesthetics "Gold":** Aplicación de colores y efectos hover consistentes (`amber-700`) en iconos de notificación y menús de perfil.
+- **Sincronización de Tailwind:** Configuración completa de la paleta "Imperial Editorial" en `tailwind.config.js` para asegurar visualización correcta de alertas y estados.

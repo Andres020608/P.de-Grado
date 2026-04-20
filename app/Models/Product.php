@@ -42,4 +42,45 @@ class Product extends Model
     {
         return $this->image ? asset('storage/'.$this->image) : null;
     }
+
+    public function getStockLevelAttribute(): string
+    {
+        if ($this->stock < 5) {
+            return 'Crítico';
+        }
+        if ($this->stock <= 9) {
+            return 'Bajo';
+        }
+
+        return 'Bien';
+    }
+
+    public function getStockColorAttribute(): string
+    {
+        if ($this->stock < 5) {
+            return 'text-error';
+        }
+        if ($this->stock <= 9) {
+            return 'text-secondary';
+        }
+
+        return 'text-primary';
+    }
+
+    public function getStockBarColorAttribute(): string
+    {
+        if ($this->stock < 5) {
+            return 'bg-error';
+        }
+        if ($this->stock <= 9) {
+            return 'bg-secondary';
+        }
+
+        return 'bg-primary';
+    }
+
+    public static function getTotalInventoryValue(): float
+    {
+        return self::sum(\DB::raw('price * stock'));
+    }
 }
