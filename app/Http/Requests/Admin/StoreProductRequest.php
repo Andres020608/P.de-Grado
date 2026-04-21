@@ -26,4 +26,17 @@ class StoreProductRequest extends FormRequest
             'is_active' => ['nullable', 'boolean'],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'sku.unique' => 'Este SKU ya está en uso por otro producto.',
+            'sku.required' => 'El SKU es obligatorio.',
+            'name.required' => 'El nombre del producto es obligatorio.',
+            'price.required' => 'El precio es obligatorio.',
+            'stock.required' => 'El stock inicial es obligatorio.',
+            'category_id.required' => 'Debe seleccionar una categoría.',
+            'supplier_id.required' => 'Debe seleccionar un proveedor.',
+        ];
+    }
 }

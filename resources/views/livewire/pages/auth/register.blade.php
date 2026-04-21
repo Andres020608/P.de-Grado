@@ -19,7 +19,7 @@ new #[Layout('layouts.guest')] class extends Component
     /**
      * Handle an incoming registration request.
      */
-    public function register(): void
+    public function register(): mixed
     {
         $validated = $this->validate([
             'name' => ['required', 'string', 'max:255'],
@@ -34,7 +34,7 @@ new #[Layout('layouts.guest')] class extends Component
 
         Auth::login($user);
 
-        $this->redirect(route('inicio', absolute: false));
+        $this->redirect(route('inicio', absolute: false), navigate: false);
     }
 }; ?>
 

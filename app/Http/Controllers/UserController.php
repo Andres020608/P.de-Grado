@@ -30,9 +30,12 @@ class UserController extends Controller
 
     public function store(StoreUserRequest $request): RedirectResponse
     {
-        User::create($request->validated());
-
-        return redirect()->route('admin.users.index')->with('success', 'Usuario creado correctamente.');
+        try {
+            User::create($request->validated());
+            return redirect()->route('admin.users.index')->with('success', 'Usuario creado correctamente.');
+        } catch (\Exception $e) {
+            return back()->withInput()->with('error', 'Ocurrió un error al crear el usuario. Por favor, intente de nuevo.');
+        }
     }
 
     public function edit(User $user): View
@@ -42,15 +45,19 @@ class UserController extends Controller
 
     public function update(UpdateUserRequest $request, User $user): RedirectResponse
     {
-        $data = $request->validated();
+        try {
+            $data = $request->validated();
 
-        if (empty($data['password'])) {
-            unset($data['password']);
+            if (empty($data['password'])) {
+                unset($data['password']);
+            }
+
+            $user->update($data);
+
+            return redirect()->route('admin.users.index')->with('success', 'Usuario actualizado correctamente.');
+        } catch (\Exception $e) {
+            return back()->withInput()->with('error', 'Ocurrió un error al actualizar el usuario.');
         }
-
-        $user->update($data);
-
-        return redirect()->route('admin.users.index')->with('success', 'Usuario actualizado correctamente.');
     }
 
     public function destroy(User $user): RedirectResponse

@@ -26,4 +26,15 @@ class UpdateProductRequest extends FormRequest
             'is_active' => ['nullable', 'boolean'],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'sku.unique' => 'Este SKU ya está registrado con otro producto.',
+            'sku.required' => 'El SKU es obligatorio.',
+            'name.required' => 'El nombre del producto es obligatorio.',
+            'price.required' => 'El precio es obligatorio.',
+            'stock.required' => 'El stock es obligatorio.',
+        ];
+    }
 }

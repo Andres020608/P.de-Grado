@@ -9,7 +9,7 @@
 
             <div class="grid grid-cols-2 gap-4">
                 <div>
-                    <label for="name" class="block text-sm font-medium text-gray-700">Nombre *</label>
+                    <x-input-label for="name" :value="__('Nombre *')" info="Nombre comercial del producto." />
                     <input type="text" name="name" id="name" value="{{ old('name') }}" required
                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                     @error('name')
@@ -18,7 +18,7 @@
                 </div>
 
                 <div>
-                    <label for="sku" class="block text-sm font-medium text-gray-700">SKU *</label>
+                    <x-input-label for="sku" :value="__('SKU *')" info="Código único de inventario. Ejemplo: AN-ORO-18K-001 (Anillo, Oro, 18K, item 001)." />
                     <input type="text" name="sku" id="sku" value="{{ old('sku') }}" required
                            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                     @error('sku')
@@ -91,7 +91,7 @@
             </div>
 
             <div>
-                <label for="metal_hallmark" class="block text-sm font-medium text-gray-700">Sello de Metal</label>
+                <x-input-label for="metal_hallmark" :value="__('Sello de Metal')" info="Indica la pureza del metal (ej: 925, 18K, 24K)." />
                 <input type="text" name="metal_hallmark" id="metal_hallmark" value="{{ old('metal_hallmark') }}"
                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                        placeholder="Ej: 925, 18K, 24K">

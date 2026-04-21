@@ -17,14 +17,14 @@
 
                     <div class="space-y-6">
                         <div>
-                            <label class="block text-sm font-medium text-gray-700">Nombre</label>
-                            <input type="text" name="name" value="{{ old('name') }}" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>
+                            <x-input-label for="name" :value="__('Nombre')" info="Nombre legal completo del usuario." />
+                            <input type="text" name="name" id="name" value="{{ old('name') }}" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>
                             @error('name')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700">Correo</label>
-                            <input type="email" name="email" value="{{ old('email') }}" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>
+                            <x-input-label for="email" :value="__('Correo')" info="Se utilizará para el inicio de sesión y notificaciones." />
+                            <input type="email" name="email" id="email" value="{{ old('email') }}" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>
                             @error('email')<p class="text-sm text-red-600">{{ $message }}</p>@enderror
                         </div>
 
@@ -40,8 +40,8 @@
                         </div>
 
                         <div>
-                            <label class="block text-sm font-medium text-gray-700">Rol</label>
-                            <select name="role" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>
+                            <x-input-label for="role" :value="__('Rol')" info="Define el nivel de acceso al panel administrativo." />
+                            <select name="role" id="role" class="mt-2 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" required>
                                 @foreach(App\Models\User::roles() as $roleKey => $roleLabel)
                                     <option value="{{ $roleKey }}" {{ old('role') === $roleKey ? 'selected' : '' }}>{{ $roleLabel }}</option>
                                 @endforeach

@@ -181,3 +181,65 @@
 - **Flujo de Autenticación:** Corrección del redireccionamiento para que tanto admins como clientes lleguen a la Página de Inicio tras el login/registro.
 - **Aesthetics "Gold":** Aplicación de colores y efectos hover consistentes (`amber-700`) en iconos de notificación y menús de perfil.
 - **Sincronización de Tailwind:** Configuración completa de la paleta "Imperial Editorial" en `tailwind.config.js` para asegurar visualización correcta de alertas y estados.
+
+---
+
+## MEJORAS DE FORMULARIOS Y MANEJO DE ERRORES
+
+- **Fecha:** 20 de abril de 2026
+- **Archivos Clave:**
+  - `resources/views/components/form-info.blade.php`: Nuevo componente de ayuda contextual.
+  - `resources/views/components/layouts/admin.blade.php`: Integración de sistema de notificaciones "Toast".
+  - `app/Http/Requests/`: Actualización de mensajes de validación personalizados.
+
+**Mejoras realizadas:**
+- **Sistema de Ayuda Contextual (Tooltips):** 
+    - Implementación de iconos de información `(i)` en etiquetas de campos críticos (SKU, Correo, Sello de Metal, etc.).
+    - Al hacer clic, se despliega una descripción detallada sin interferir con el flujo del formulario.
+- **Notificaciones "Toast" en Tiempo Real:** 
+    - Sistema global en el panel administrativo para mostrar errores de sistema y confirmaciones de éxito.
+    - Desaparición automática tras 5 segundos con animaciones fluidas de Alpine.js.
+- **Manejo de Errores de Base de Datos:** 
+    - Implementación de bloques `try-catch` en controladores para evitar respuestas genéricas del servidor ante fallos de BD.
+    - Mensajes de validación en español para restricciones de unicidad (ej: "Este correo electrónico ya está en uso").
+- **Fix de Redirección (Login/Registro):** 
+    - Se forzó la recarga completa del navegador tras el inicio de sesión y registro para asegurar la sincronización del estado de autenticación en la UI.
+- **Navegación Dinámica en Home:** 
+    - El botón principal del Hero ("Ver Colección") ahora cambia a **"Inventario"** cuando un administrador inicia sesión, redirigiendo directamente al Dashboard administrativo.
+- **UX Refinada:** 
+    - Actualización de todos los formularios administrativos (Productos, Categorías, Proveedores, Usuarios y Ventas) con descripciones informativas para el usuario.
+    - El campo **SKU** ahora incluye un ejemplo real: `AN-ORO-18K-001`.
+
+---
+
+## OPTIMIZACIÓN DE RENDIMIENTO
+
+- **Fecha:** 20 de abril de 2026
+- **Archivos Clave:**
+  - `database/migrations/2026_04_20_000002_add_performance_indexes.php`: Índices de base de datos.
+  - `resources/views/inicio.blade.php`: Optimización de carga de imágenes.
+
+**Mejoras realizadas:**
+- **Indexación de Base de Datos:** 
+    - Añadidos índices a columnas de búsqueda frecuente (`SKU`, `email`, `status`, `sale_date`) y llaves foráneas.
+    - Resultado: Consultas de filtrado y reportes significativamente más rápidas.
+- **Carga Diferida (Lazy Loading):** 
+    - Implementado `loading="lazy"` en todas las imágenes de la página de inicio (fuera del primer pantallazo) y en la lista de productos administrativa.
+    - Resultado: Menor consumo de ancho de banda y carga inicial del sitio más veloz.
+- **Auditoría de Consultas (N+1):** 
+    - Verificación y refuerzo de `Eager Loading` en controladores para minimizar peticiones SQL repetitivas.
+
+---
+
+## REDISEÑO DE AUTENTICACIÓN (LOGIN Y REGISTRO)
+
+- **Fecha:** 21 de abril de 2026
+- **Archivos Clave:**
+  - `resources/views/livewire/pages/auth/register.blade.php`
+  - `resources/views/livewire/pages/auth/login.blade.php`
+
+**Mejoras realizadas:**
+- **Tema "Imperial Editorial":** Aplicación completa de la paleta de colores oficial (Verde oscuro `#003229` y Dorado `#735c00`).
+- **Diseño Premium:** Implementación de tarjetas estilo "Glassmorphism" con sombras suaves, separadores elegantes y tipografía serif (`Noto Serif`).
+- **Navegación Fluida:** Agregadas pestañas de navegación para alternar rápidamente entre "Ingresar" y "Registrarse".
+- **Feedback Visual:** Adaptación de los campos de entrada e inputs de error para mantener la estética minimalista y elegante de la joyería.

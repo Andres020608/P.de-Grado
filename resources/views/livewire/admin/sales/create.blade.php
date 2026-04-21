@@ -129,13 +129,13 @@ new class extends Component {
                 <h3 class="text-xs font-label uppercase tracking-[0.3em] text-secondary mb-10 pb-2 border-b border-outline-variant/20">I. Identidad del Cliente</h3>
                 <div class="space-y-10">
                     <div class="relative">
-                        <label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2">Nombre Legal Completo *</label>
-                        <input wire:model="customer_name" class="w-full bg-transparent border-none border-b border-outline-variant focus:ring-0 focus:border-secondary py-3 px-0 font-headline text-xl transition-all placeholder:text-outline-variant/40" placeholder="ej. Alistair Vance" type="text" required/>
+                        <x-input-label for="customer_name" :value="__('Nombre Legal Completo *')" info="Nombre que aparecerá en la factura oficial." class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2" />
+                        <input wire:model="customer_name" id="customer_name" class="w-full bg-transparent border-none border-b border-outline-variant focus:ring-0 focus:border-secondary py-3 px-0 font-headline text-xl transition-all placeholder:text-outline-variant/40" placeholder="ej. Alistair Vance" type="text" required/>
                         @error('customer_name') <span class="text-error text-[10px] uppercase">{{ $message }}</span> @enderror
                     </div>
                     <div class="relative">
-                        <label class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2">Documento de Identidad *</label>
-                        <input wire:model="customer_document" class="w-full bg-transparent border-none border-b border-outline-variant focus:ring-0 focus:border-secondary py-3 px-0 font-body text-base transition-all" placeholder="ID / DNI / Pasaporte" type="text" required/>
+                        <x-input-label for="customer_document" :value="__('Documento de Identidad *')" info="ID, DNI o Pasaporte del cliente." class="block text-[10px] font-label uppercase tracking-widest text-on-surface-variant mb-2" />
+                        <input wire:model="customer_document" id="customer_document" class="w-full bg-transparent border-none border-b border-outline-variant focus:ring-0 focus:border-secondary py-3 px-0 font-body text-base transition-all" placeholder="ID / DNI / Pasaporte" type="text" required/>
                         @error('customer_document') <span class="text-error text-[10px] uppercase">{{ $message }}</span> @enderror
                     </div>
                     <div class="grid grid-cols-2 gap-8">

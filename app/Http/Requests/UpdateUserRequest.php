@@ -30,4 +30,15 @@ class UpdateUserRequest extends FormRequest
             'role' => ['required', 'string', 'in:admin,cliente'],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'email.unique' => 'Este correo electrónico ya está registrado con otra cuenta.',
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'name.required' => 'El nombre es obligatorio.',
+            'password.min' => 'La nueva contraseña debe tener al menos 8 caracteres.',
+            'password.confirmed' => 'La confirmación de la contraseña no coincide.',
+        ];
+    }
 }

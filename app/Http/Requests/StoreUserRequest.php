@@ -29,4 +29,16 @@ class StoreUserRequest extends FormRequest
             'role' => ['required', 'string', 'in:admin,cliente'],
         ];
     }
+
+    public function messages(): array
+    {
+        return [
+            'email.unique' => 'Este correo electrónico ya ha sido tomado por otro usuario.',
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'name.required' => 'El nombre es obligatorio.',
+            'password.required' => 'La contraseña es obligatoria.',
+            'password.min' => 'La contraseña debe tener al menos 8 caracteres.',
+            'password.confirmed' => 'Las contraseñas no coinciden.',
+        ];
+    }
 }

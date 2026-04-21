@@ -8,7 +8,11 @@
 <a class="text-2xl font-serif font-bold text-[#003229] dark:text-[#fbf9f4] tracking-tighter" href="#">Jessica Joyería</a>
 <div class="hidden md:flex space-x-8">
 <a class="font-serif text-lg tracking-tight text-[#735c00] border-b-2 border-[#735c00] pb-1 hover:text-[#735c00] transition-colors duration-300" href="#">Inicio</a>
-<a class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300" href="#">Colección</a>
+@if(auth()->check() && auth()->user()->isAdmin())
+    <a class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300" href="{{ route('dashboard') }}">Inventario</a>
+@else
+    <a class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300" href="#">Colección</a>
+@endif
 <a class="font-serif text-lg tracking-tight text-[#003229] dark:text-[#fbf9f4] opacity-80 hover:text-[#735c00] transition-colors duration-300" href="#herencia">Nosotros</a>
 </div>
 </div>
@@ -74,10 +78,17 @@
 <h1 class="font-headline text-5xl md:text-7xl lg:text-8xl text-white leading-tight -ml-1">Arte en <br/> <span class="italic">Cada Detalle</span></h1>
 <p class="font-body text-xl text-white/90 max-w-lg leading-relaxed">Descubre nuestra colección exclusiva de joyería artesanal, donde la tradición y la elegancia se unen.</p>
 <div class="pt-4">
-<button class="bg-secondary text-surface px-10 py-5 rounded-lg font-label text-sm uppercase tracking-widest hover:bg-on-secondary-container transition-all editorial-shadow flex items-center gap-3">
-                            Ver Colección
-                            <span class="material-symbols-outlined text-lg">arrow_forward</span>
-</button>
+    @if(auth()->check() && auth()->user()->isAdmin())
+        <a href="{{ route('dashboard') }}" class="inline-flex bg-secondary text-surface px-10 py-5 rounded-lg font-label text-sm uppercase tracking-widest hover:bg-on-secondary-container transition-all editorial-shadow items-center gap-3">
+            Inventario
+            <span class="material-symbols-outlined text-lg">inventory</span>
+        </a>
+    @else
+        <button class="bg-secondary text-surface px-10 py-5 rounded-lg font-label text-sm uppercase tracking-widest hover:bg-on-secondary-container transition-all editorial-shadow flex items-center gap-3">
+            Ver Colección
+            <span class="material-symbols-outlined text-lg">arrow_forward</span>
+        </button>
+    @endif
 </div>
 </div>
 </div>
@@ -96,7 +107,7 @@
 <!-- Large Feature Item -->
 <div class="md:col-span-2 md:row-span-2 group">
 <div class="relative overflow-hidden bg-surface-container-low h-full min-h-[600px]">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO8GGNor3xa_sF_5uPZvRhV8FRchE5oneIncG4y9nghy7EONnhjPpKTQ91yV5bHZJZXosS45pAp6M-Ugm_PvGeMM7IBurFfqDsyC1ioQ553iQc0EqviI9LcMz_pT6cAJBbvOH1L0dBURI88ZldKtB9pcxOW2_RGUQ9yfAMZ06EQLZZbYu_fJN4vDfPTjhKJaYqbCx1wk-PEle6-e3_sXsXYaUyZ1dAvLkkVagNzAp0YNw10yDpf1KWdCGN6U9x8BQFDE9DRQjMtA4"/>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBO8GGNor3xa_sF_5uPZvRhV8FRchE5oneIncG4y9nghy7EONnhjPpKTQ91yV5bHZJZXosS45pAp6M-Ugm_PvGeMM7IBurFfqDsyC1ioQ553iQc0EqviI9LcMz_pT6cAJBbvOH1L0dBURI88ZldKtB9pcxOW2_RGUQ9yfAMZ06EQLZZbYu_fJN4vDfPTjhKJaYqbCx1wk-PEle6-e3_sXsXYaUyZ1dAvLkkVagNzAp0YNw10yDpf1KWdCGN6U9x8BQFDE9DRQjMtA4" loading="lazy"/>
 <div class="absolute bottom-8 left-8 text-surface">
 <span class="font-label text-xs uppercase tracking-widest bg-primary/40 backdrop-blur-md px-3 py-1 mb-3 inline-block">Anillo Imperial</span>
 <h3 class="font-headline text-3xl">Esmeralda en Oro 18k</h3>
@@ -106,7 +117,7 @@
 <!-- Product Grid Items -->
 <div class="group cursor-pointer">
 <div class="aspect-[4/5] overflow-hidden bg-surface-container-low mb-6">
-<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLzzYKEbYn3JugVfXINHRc9CKTgDmQhzNzBwUbVifi2hQqSNby6dGMPpyTtID8PZyuG72jxWlvth5DNRy_E64OeuDpEsM-XoblG1cVQ_Uy37AGrSHoBy-3CS8ol03ieXPHqSEH9YfHtRl3t2NHAs3CcequpTVtYIEvBp_f14jzxj_DGIfbnZagAFTBRP-cI97rxcEVS3FmqxoX0a2E2GmNe-Is8d8HmtjqVsP-cLKqWN5qnfofWxY3XhINE_xS4vikjARErs5b_9U"/>
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLzzYKEbYn3JugVfXINHRc9CKTgDmQhzNzBwUbVifi2hQqSNby6dGMPpyTtID8PZyuG72jxWlvth5DNRy_E64OeuDpEsM-XoblG1cVQ_Uy37AGrSHoBy-3CS8ol03ieXPHqSEH9YfHtRl3t2NHAs3CcequpTVtYIEvBp_f14jzxj_DGIfbnZagAFTBRP-cI97rxcEVS3FmqxoX0a2E2GmNe-Is8d8HmtjqVsP-cLKqWN5qnfofWxY3XhINE_xS4vikjARErs5b_9U" loading="lazy"/>
 </div>
 <span class="font-label text-xs uppercase tracking-widest bg-primary/40 backdrop-blur-md px-3 py-1 mb-3 inline-block">Aretes</span>
 <h4 class="font-headline text-xl mt-1 mb-2">Drops de Diamante Celestial</h4>
@@ -174,7 +185,7 @@
 <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-16 items-center">
 <div class="md:col-span-6 relative">
 <div class="aspect-[3/4] overflow-hidden rounded-sm">
-<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDELPIP7OvFUKBUsSdu35NelBFamQ2IaFwW6BWzIpWWhp0OyaMzzn0o3CdfJw2vi240ugTrOBL1k-iaruvJXsRhp44svpag1MKZto1OBtVqNwWqz3MsAMe0_iz_evQvmur16Ucww8KDNbsqoYZu6-kySA4snkl8yzUHp_ocXVbJYs9DITfKxJqRRPNZm8wadbAV1jUF-4Kc9x3zzWpfSvQ3Dm7u255aw4NnAQTw7bkdUbIajwJ1fcf8ECjwQCF2dQP58hKlgahF22Q"/>
+<img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDELPIP7OvFUKBUsSdu35NelBFamQ2IaFwW6BWzIpWWhp0OyaMzzn0o3CdfJw2vi240ugTrOBL1k-iaruvJXsRhp44svpag1MKZto1OBtVqNwWqz3MsAMe0_iz_evQvmur16Ucww8KDNbsqoYZu6-kySA4snkl8yzUHp_ocXVbJYs9DITfKxJqRRPNZm8wadbAV1jUF-4Kc9x3zzWpfSvQ3Dm7u255aw4NnAQTw7bkdUbIajwJ1fcf8ECjwQCF2dQP58hKlgahF22Q" loading="lazy"/>
 </div>
 <div class="absolute -right-12 -bottom-12 w-64 h-64 bg-primary p-8 hidden lg:flex flex-col justify-end text-surface">
 <span class="font-headline text-4xl italic">Colombia</span>

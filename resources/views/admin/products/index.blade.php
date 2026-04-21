@@ -40,7 +40,7 @@
                                     <td class="px-6 py-4 whitespace-nowrap">
                                         <div class="flex-shrink-0 h-10 w-10">
                                             @if($product->image)
-                                                <img class="h-10 w-10 rounded-md object-cover border border-gray-200" src="{{ $product->image_url }}" alt="{{ $product->name }}">
+                                                <img class="h-10 w-10 rounded-md object-cover border border-gray-200" src="{{ $product->image_url }}" alt="{{ $product->name }}" loading="lazy">
                                             @else
                                                 <div class="h-10 w-10 rounded-md bg-gray-100 flex items-center justify-center text-gray-400">
                                                     <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">

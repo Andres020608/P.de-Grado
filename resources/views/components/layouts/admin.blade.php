@@ -112,6 +112,38 @@
         </main>
     </div>
 
+    <!-- Notifications Toast -->
+    <div x-data="{ 
+            show: {{ session()->has('error') || session()->has('success') ? 'true' : 'false' }}, 
+            message: '{{ session('error') ?? session('success') ?? '' }}',
+            type: '{{ session()->has('error') ? 'error' : 'success' }}'
+        }"
+        x-show="show"
+        x-init="if(show) setTimeout(() => show = false, 5000)"
+        x-transition:enter="transition ease-out duration-300"
+        x-transition:enter-start="translate-y-2 opacity-0 sm:translate-y-0 sm:translate-x-2"
+        x-transition:enter-end="translate-y-0 opacity-100 sm:translate-x-0"
+        x-transition:leave="transition ease-in duration-100"
+        x-transition:leave-start="opacity-100"
+        x-transition:leave-end="opacity-0"
+        class="fixed top-4 right-4 z-[100] max-w-sm w-full bg-white shadow-2xl rounded-sm border-l-4 overflow-hidden"
+        :class="type === 'error' ? 'border-error' : 'border-primary'"
+        style="display: none;"
+    >
+        <div class="p-4 flex items-start gap-3">
+            <div :class="type === 'error' ? 'text-error' : 'text-primary'">
+                <span class="material-symbols-outlined" x-text="type === 'error' ? 'error' : 'check_circle'"></span>
+            </div>
+            <div class="flex-1">
+                <p class="text-xs font-bold uppercase tracking-widest" :class="type === 'error' ? 'text-error' : 'text-primary'" x-text="type === 'error' ? 'Error de Sistema' : 'Operación Exitosa'"></p>
+                <p class="mt-1 text-sm text-on-surface-variant font-body" x-text="message"></p>
+            </div>
+            <button @click="show = false" class="text-outline hover:text-on-surface transition-colors">
+                <span class="material-symbols-outlined text-sm">close</span>
+            </button>
+        </div>
+    </div>
+
     @livewireScripts
     @stack('scripts')
 </body>

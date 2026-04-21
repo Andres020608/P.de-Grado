@@ -8,7 +8,7 @@
             @csrf
 
             <div>
-                <label for="name" class="block text-sm font-medium text-gray-700">Nombre *</label>
+                <x-input-label for="name" :value="__('Nombre *')" info="Nombre legal de la empresa o artesano." />
                 <input type="text" name="name" id="name" value="{{ old('name') }}" required
                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 @error('name')
@@ -35,7 +35,7 @@
             </div>
 
             <div>
-                <label for="material_specialty" class="block text-sm font-medium text-gray-700">Especialidad en Materiales</label>
+                <x-input-label for="material_specialty" :value="__('Especialidad en Materiales')" info="Materiales en los que destaca este proveedor (ej: piedras preciosas, metales reciclados)." />
                 <input type="text" name="material_specialty" id="material_specialty" value="{{ old('material_specialty') }}"
                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                        placeholder="Ej: oro, plata, diamantes">

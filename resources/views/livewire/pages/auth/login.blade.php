@@ -13,7 +13,7 @@ new #[Layout('layouts.guest')] class extends Component
     /**
      * Handle an incoming authentication request.
      */
-    public function login(): void
+    public function login(): mixed
     {
         $this->validate();
 
@@ -21,7 +21,7 @@ new #[Layout('layouts.guest')] class extends Component
 
         Session::regenerate();
 
-        $this->redirect(route('inicio', absolute: false), navigate: true);
+        $this->redirect(route('inicio', absolute: false), navigate: false);
     }
 }; ?>
 

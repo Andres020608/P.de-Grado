@@ -8,7 +8,7 @@
             @csrf
 
             <div>
-                <label for="name" class="block text-sm font-medium text-gray-700">Nombre *</label>
+                <x-input-label for="name" :value="__('Nombre *')" info="Nombre de la colección o tipo de joyería." />
                 <input type="text" name="name" id="name" value="{{ old('name') }}" required
                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500">
                 @error('name')
@@ -35,7 +35,7 @@
             </div>
 
             <div>
-                <label for="material_focus_tags" class="block text-sm font-medium text-gray-700">Etiquetas de Enfoque de Material</label>
+                <x-input-label for="material_focus_tags" :value="__('Etiquetas de Enfoque de Material')" info="Palabras clave que describen los materiales predominantes (separadas por comas)." />
                 <input type="text" name="material_focus_tags" id="material_focus_tags" value="{{ old('material_focus_tags') }}"
                        class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500"
                        placeholder="Ej: oro, plata, platino">
