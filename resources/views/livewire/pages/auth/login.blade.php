@@ -13,7 +13,7 @@ new #[Layout('layouts.guest')] class extends Component
     /**
      * Handle an incoming authentication request.
      */
-    public function login(): mixed
+    public function login(): void
     {
         $this->validate();
 
@@ -83,9 +83,10 @@ new #[Layout('layouts.guest')] class extends Component
                     <label for="remember" class="text-xs text-[#404945]">Recordar este dispositivo por 30 días</label>
                 </div>
 
-                <button type="submit" class="w-full bg-[#003229] hover:bg-[#00503f] text-white py-4 font-semibold text-xs uppercase tracking-[0.2em] rounded-lg transition-all flex items-center justify-center gap-2">
-                    Ingresar
-                    <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                <button type="submit" wire:loading.attr="disabled" class="w-full bg-[#003229] hover:bg-[#00503f] disabled:opacity-50 text-white py-4 font-semibold text-xs uppercase tracking-[0.2em] rounded-lg transition-all flex items-center justify-center gap-2">
+                    <span wire:loading.remove>Ingresar</span>
+                    <span wire:loading>Procesando...</span>
+                    <span wire:loading.remove class="material-symbols-outlined text-sm">arrow_forward</span>
                 </button>
             </form>
         </div>

@@ -12,6 +12,28 @@ Asegúrate de tener instaladas las siguientes herramientas en tu sistema:
 *   **Servidor de Base de Datos:** MySQL o MariaDB.
 *   **Servidor Web:** Laragon, XAMPP o puedes usar el servidor integrado de Laravel (`php artisan serve`).
 
+### Extensiones de PHP Requeridas (Entorno Windows)
+
+Dado que esta aplicación está diseñada para ejecutarse en entornos **Windows**, es **obligatorio activar la extensión `zip`** en PHP. De lo contrario, herramientas como Composer fallarán al instalar dependencias clave o al procesar archivos comprimidos.
+
+**¿Cómo encontrar y activar la extensión?**
+*   **En Laragon:** Haz clic derecho en cualquier espacio en blanco de la ventana de Laragon, ve a la opción **PHP** > **Quick Settings** y asegúrate de que `zip` tenga un check marcado. (También puedes ir a **PHP** > **php.ini**, buscar la línea `;extension=zip` y borrar el punto y coma `;` inicial).
+*   **En XAMPP:** En el panel de control, haz clic en **Config** al lado de Apache, selecciona **PHP (php.ini)**, busca la línea `;extension=zip` y quítale el punto y coma `;`. Guarda el archivo y reinicia Apache.
+
+### Instalación de Paquetes de la Aplicación (PDF y Excel)
+
+La aplicación utiliza dependencias fundamentales que debes tener instaladas:
+*   `barryvdh/laravel-dompdf` (Para exportar facturas y documentos en PDF).
+*   `maatwebsite/excel` (Para exportar reportes en formato .xls/.xlsx).
+
+> **Aviso sobre versiones recientes de PHP:** Si estás utilizando la última versión de PHP (como PHP 8.4 o 8.5) y te encuentras con errores al hacer `composer install` porque los desarrolladores de estas librerías aún no han marcado compatibilidad oficial con esa versión exacta, puedes forzar la instalación indicándole a Composer que ignore este requisito específico. 
+
+Puedes instalar o actualizar estas extensiones usando el siguiente comando:
+
+```bash
+composer require barryvdh/laravel-dompdf maatwebsite/excel --ignore-platform-req=php+
+```
+
 ---
 
 ## 🚀 Pasos para la Instalación
